@@ -1,5 +1,9 @@
 # 🎮 Minecraft-Mods
 
+![Status](https://img.shields.io/badge/Status-Beta-orange)
+
+> 🚧 **Beta – in Entwicklung.** Dieses Projekt ist noch nicht fertig und noch nicht offiziell veröffentlicht.
+
 Das ist mein fester Platz für Minecraft-Mods. Hier lade ich meine Mods hoch – jede Mod kommt am besten in einen eigenen Unterordner, damit alles übersichtlich bleibt.
 
 ## Übersicht

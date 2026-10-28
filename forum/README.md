@@ -1,3 +1,5 @@
+> 🚧 **Beta – in Entwicklung.** Dieses Projekt ist noch nicht fertig und noch nicht offiziell veröffentlicht.
+
 # turkac.org – anonymes Gaming-Forum
 
 Keine externen Abhängigkeiten, nur Node.js >= 22.13 (SQLite ist eingebaut).
