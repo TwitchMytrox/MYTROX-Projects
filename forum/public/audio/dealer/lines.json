@@ -1,0 +1,127 @@
+{
+  "welcome": [
+    "Willkommen in der Turkac Arcade. Setz dich, mach es dir bequem. Die Credits sind virtuell, der Spaß ist echt.",
+    "Ah, da ist ja jemand mit Stil. Willkommen in der Turkac Arcade. Der Einsatz ist klein, die Legende groß."
+  ],
+  "bet_high": [
+    "Bist du sicher, dass du so viel setzen willst? Mut gefällt mir, aber dein Kontostand schaut mich gerade ziemlich nervös an.",
+    "So viel? Okay. Ich bewundere Selbstvertrauen. Ich hoffe nur, es hat eine Rückversicherung.",
+    "Große Zahl. Große Gefühle. Du bist dir sicher? Dann los."
+  ],
+  "bj_deal": [
+    "Karten kommen. Ich mische mit Eleganz, du spielst mit Verstand. Fair gerechnet, aber knapp.",
+    "Na dann. Zwei Karten für dich, zwei für mich. Mal sehen, wer heute besser aussieht.",
+    "Ich teile aus. Und nein, ich zinke nichts. Das hier ist ein seriöses Haus."
+  ],
+  "bj_prompt": [
+    "Karte oder halten? Überleg dir das gut. Ich habe Zeit, der Whirlpool wartet erst später.",
+    "Noch eine Karte, oder reicht dir das, was du hast?",
+    "Deine Entscheidung. Aber vergiss nicht: Die 21 ist keine Pflicht, nur ein Traum."
+  ],
+  "bj_blackjack": [
+    "Blackjack! Das nenne ich einen Auftritt. Ich würde klatschen, aber ich muss die Karten halten.",
+    "Eine Zwei-Karten-Einundzwanzig. Wunderbar. Das riecht nach Champagner."
+  ],
+  "bj_win": [
+    "Gewonnen. Herzlichen Glückwunsch. Ich gönne es dir, wirklich. Zumindest fast.",
+    "Das war stark. Kompliment, du hast heute eindeutig die besseren Karten und die besseren Nerven.",
+    "Du gewinnst. Schade für mich, schön für dich. Der Abend gehört dir."
+  ],
+  "bj_push": [
+    "Unentschieden. Weder Sieger noch Verlierer. Ich nenne das diplomatischen Erfolg.",
+    "Gleichstand. Dein Einsatz kommt zurück. Beziehungstechnisch also ein ziemlich ehrliches Ergebnis."
+  ],
+  "bj_bust": [
+    "Drüber. Passiert den Besten. Und manchmal auch dir.",
+    "Überkauft. Zu gierig geworden. Das ist übrigens meine Spezialität, bei anderen."
+  ],
+  "bj_lose": [
+    "Das Haus gewinnt. Aber du hast mit Würde verloren, und das ist ja auch etwas.",
+    "Verloren. Kopf hoch. Die nächste Runde ist schon wieder deine Chance."
+  ],
+  "slots_spin": [
+    "Die Walzen drehen sich. Halt die Daumen, oder zumindest einen.",
+    "Und los. Wenn du dreimal die Sieben siehst, tu bitte so, als wärst du überrascht."
+  ],
+  "slots_win": [
+    "Treffer! Na, wer sagt es denn. Das Glück mag Leute mit gutem Geschmack.",
+    "Gewonnen. Ich notiere: charmant, mutig und kurz vor dem nächsten Einsatz.",
+    "Die Walzen sind dir gnädig. Genieße es, solange sie in Stimmung sind."
+  ],
+  "slots_big": [
+    "Das ist der Jackpot-Moment! Ich muss mich kurz setzen. Ach, ich sitze ja schon.",
+    "Wow. Drei gleiche Zeichen und ein sehr glücklicher Gast. So sieht ein guter Abend aus."
+  ],
+  "slots_lose": [
+    "Leider nichts. Die Walzen waren heute einfach schüchtern.",
+    "Knapp daneben. Nächstes Mal vielleicht. Oder übernächstes. Ich bin geduldig."
+  ],
+  "roul_spin": [
+    "Die Kugel rollt. Rien ne va plus. Das heißt: Jetzt darfst du nur noch hoffen.",
+    "Nichts geht mehr. Ab hier hilft nur noch Charme, und den hast du ja."
+  ],
+  "roul_win": [
+    "Gewonnen! Die Kugel hat sich für dich entschieden. Gute Wahl, Kugel.",
+    "Treffer. Das war entweder Intuition oder sehr viel Glück. Ich nehme beides."
+  ],
+  "roul_lose": [
+    "Falsche Farbe, falsche Zahl, richtige Haltung. Weiter geht's.",
+    "Die Kugel sagt nein. Aber sie sagt es sehr höflich."
+  ],
+  "roul_zero": [
+    "Die Null. Die grüne Null. Die einzige Zahl, die mich wirklich liebt.",
+    "Null! Das Haus bedankt sich sehr herzlich. Du verlierst bei den Außenwetten, aber du verlierst mit Stil."
+  ],
+  "react_start": [
+    "Reaktionstest. Konzentration, bitte. Und nicht blinzeln.",
+    "Warte auf Grün. Geduld ist eine Tugend. Schnelligkeit auch."
+  ],
+  "react_win": [
+    "Blitzschnell! Mit solchen Reflexen könntest du einer Dame den fallenden Hut noch vor dem Aufprall zurückreichen.",
+    "Das war schnell. Wirklich schnell. Ich bin beeindruckt, und das passiert selten."
+  ],
+  "react_slow": [
+    "Etwas gemütlich, hm? Man sieht, du genießt das Leben. Zum Gewinnen reicht es heute nicht.",
+    "Zu langsam. Aber ich verrate dir ein Geheimnis: Auch Schnecken kommen irgendwann an."
+  ],
+  "react_early": [
+    "Zu früh! Ungeduld ist in diesem Haus teuer. Und manchmal auch in anderen Lebensbereichen.",
+    "Voreilig, voreilig. Warte auf das Grün, mein Freund."
+  ],
+  "mem_start": [
+    "Memory. Sechzehn Karten, acht Paare, ein Gedächtnis. Zeig, was du hast.",
+    "Konzentrier dich. Und falls du den Namen deiner letzten Verabredung vergessen hast, das ist hier erlaubt."
+  ],
+  "mem_win": [
+    "Alle Paare gefunden! Das Gedächtnis eines Elefanten, die Eleganz eines Gentlemans.",
+    "Sauber gespielt. Ich hatte kurz Sorge um mein Preisgeld."
+  ],
+  "mem_nowin": [
+    "Geschafft, aber ohne Preis. Du hattest Charakter. Und mehr Züge als nötig.",
+    "Fertig. Ein bisschen zu viel Herumprobiert, aber ich urteile nicht."
+  ],
+  "snake_start": [
+    "Snake. Friss Äpfel, vermeide Wände, und beiß dir bitte nicht in den Schwanz.",
+    "Die Schlange ist hungrig. Gib ihr, was sie verdient, und sei nicht zu gierig."
+  ],
+  "snake_win": [
+    "Beachtlich. Die Schlange ist satt, du bist reich. Eine gute Partnerschaft.",
+    "Sehr gut gespielt. Die Äpfel haben sich gelohnt, und das Staatskonto weint leise."
+  ],
+  "snake_lose": [
+    "Wand getroffen. Das tut weh. Aber so lernt man Respekt vor Mauern.",
+    "Das war es für die Schlange. Aber keine Sorge, sie wächst nach. Die Würde nicht immer."
+  ],
+  "limit": [
+    "Für heute ist Schluss, mein Freund. Das Haus achtet auf dich, auch wenn du es nicht tust.",
+    "Das Limit ist erreicht. Gönn dir eine Pause. Morgen wartet die Arcade wieder auf dich."
+  ],
+  "broke": [
+    "Die Credits gehen zur Neige. Schau doch mal im Forum vorbei, da warten neue.",
+    "Leere Taschen? Passiert den Besten. Aber keine Sorge, im Forum gibt es immer neue Möglichkeiten."
+  ],
+  "bye": [
+    "Auf Wiedersehen. Und denk dran: Die beste Wette ist, rechtzeitig aufzuhören.",
+    "Danke für den Besuch. Komm bald wieder. Ich halte dir den besten Platz frei."
+  ]
+}

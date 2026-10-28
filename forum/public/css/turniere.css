@@ -1,0 +1,13 @@
+.tn-grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.tn-card { display: grid; gap: 6px; padding: 16px; border: 1px solid var(--line); border-radius: 16px; background: #0a0a14; color: var(--text); text-decoration: none; transition: border-color .15s, transform .12s; }
+.tn-card:hover, .tn-card:focus-visible { border-color: #d4142c; transform: translateY(-2px); }
+.tn-card h3 { margin: 0; font-size: 17px; }
+.tn-table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+.tn-table th, .tn-table td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+.tn-table td.num, .tn-table th.num { text-align: right; font-variant-numeric: tabular-nums; }
+.tn-table input { width: 6rem; padding: 6px 8px; }
+.tn-prize { display: flex; gap: 10px; flex-wrap: wrap; margin: 8px 0; }
+.tn-prize span { padding: 6px 14px; border: 1px solid var(--line); border-radius: 999px; }
+.tn-live { color: #35e0a1; font-size: 14px; }
+.sup-main input[type=number], .sup-main input[type=datetime-local], .sup-main input[type=url] { width: 100%; box-sizing: border-box; background: var(--bg); color: var(--text); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; font: inherit; }
+.sup-main input[type=number]:focus, .sup-main input[type=datetime-local]:focus, .sup-main input[type=url]:focus { outline: 3px solid #fff; outline-offset: 2px; }

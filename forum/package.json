@@ -1,0 +1,11 @@
+{
+  "name": "turkac-org",
+  "version": "1.0.0",
+  "description": "Anonymes Gaming-Forum mit Datei-Uploads, SQLite-Datenbank und Admin-Backend (keine externen Abhängigkeiten)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": { "node": ">=22.13" },
+  "license": "MIT"
+}

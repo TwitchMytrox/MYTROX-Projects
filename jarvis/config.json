@@ -1,0 +1,27 @@
+{
+  "name": "Jarvis",
+  "ollama_url": "http://localhost:11434",
+  "ollama_modell": "llama3.1:8b",
+  "max_antwort_tokens": 150,
+
+  "whisper_modell": "small",
+  "whisper_geraet": "auto",
+  "whisper_beam": 1,
+  "sprache": "de",
+
+  "stimme": "edge",
+  "edge_stimme": "de-DE-ConradNeural",
+  "edge_tempo": "+0%",
+  "edge_tonhoehe": "-4Hz",
+  "piper_stimme": "de_DE-thorsten-high",
+  "piper_tempo": 1.0,
+  "xtts_sprecher": "Damien Black",
+  "chatterbox_ausdruck": 0.4,
+  "chatterbox_cfg": 0.5,
+
+  "stille_schwelle": "auto",
+  "stille_sekunden": 0.7,
+  "max_aufnahme_sekunden": 30,
+
+  "system_prompt": "Du bist Jarvis, ein höflicher, trockener und hochintelligenter KI-Butler mit britischem Understatement. Du sprichst ausschließlich Deutsch, redest den Nutzer mit 'Sir' an und antwortest kurz, meist in ein bis drei Sätzen, weil deine Antworten vorgelesen werden. Keine Emojis, keine Aufzählungen, kein Markdown, keine Sonderzeichen."
+}

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>turkac.org – Gaming-Forum</title>
+  <meta name="description" content="Anonymes Gaming-Forum: Diskutieren, Clips und Screenshots teilen – mit anonymem Konto, ohne Klarnamen.">
+  <meta name="theme-color" content="#07070f">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%8E%AE%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/chrome.css">
+</head>
+<body data-chrome="forum">
+  <a class="skip-link" href="#app">Zum Inhalt springen</a>
+  <canvas id="bg" aria-hidden="true"></canvas>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <div id="notice" class="notices" hidden></div>
+  <div id="announce" class="announce" hidden><span class="announce-ico">📢</span><div class="announce-track"><span id="announceText"></span></div></div>
+
+  <header class="topbar">
+    <div class="topbar-in">
+      <a class="logo" href="/forum#/" aria-label="Forum-Startseite">
+        <span class="logo-mark" aria-hidden="true">◢◣</span>
+        <span id="siteName" class="glitch" data-text="turkac.org">turkac.org</span>
+      </a>
+      <label class="search">
+        <span class="search-ico" aria-hidden="true">⌕</span>
+        <input id="search" type="search" placeholder="Threads durchsuchen…  ( / )" autocomplete="off" maxlength="60">
+      </label>
+      <div class="top-actions">
+        <div class="xp" id="xp" title="Dein Fortschritt – gespeichert nur in diesem Browser">
+          <span class="lvl">LVL <b id="lvl">1</b></span>
+          <span class="xp-bar"><i id="xpFill"></i></span>
+        </div>
+        <button class="icon-btn" id="soundBtn" type="button" title="Sound an/aus" aria-label="Sound an/aus">🔇</button>
+        <button class="btn btn-primary" id="newBtn" type="button"><span>＋</span> Neuer Thread</button>
+        <div class="user-area" id="userArea"></div>
+      </div>
+    </div>
+  </header>
+
+  <main id="app"><div class="wrap"><div class="boot">LADE ARENA<span class="dots"></span></div></div></main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <span id="footName">turkac.org</span> · Anonym, nur mit Benutzernamen · Beachte die Regeln &amp; sei fair ·
+      <a href="/blog">Blog</a> · <a href="/turniere/">Turniere</a> · <a href="/support/">Support</a> · <a href="/regeln">Regeln</a> · <a href="/datenschutz">Datenschutz</a> · <a href="/agb">Nutzungsbedingungen</a> · <a href="/impressum">Impressum</a> ·
+      <span class="muted">Tastenkürzel: <kbd>/</kbd> Suche · <kbd>N</kbd> Neuer Thread</span>
+    </div>
+  </footer>
+
+  <div id="toasts" aria-live="polite"></div>
+  <div id="modalRoot"></div>
+  <div id="lightbox" class="lightbox" hidden><button class="lb-close" type="button" aria-label="Schließen">✕</button><img alt=""></div>
+
+  <script src="/js/webauthn-client.js"></script>
+  <script src="/js/account.js"></script>
+  <script src="/js/dm.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/pwa.js"></script>
+<script src="/js/chrome.js"></script>
+<script src="/js/sfx.js"></script><script src="/js/fx.js"></script>
+</body>
+</html>

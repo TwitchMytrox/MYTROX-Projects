@@ -1,0 +1,61 @@
+'use strict';
+// Virtueller Authenticator: prüft Registrierung + Login mit Sicherheitsschlüssel
+const crypto = require('node:crypto');
+const BASE = process.env.BASE || 'http://localhost:3199';
+const ORIGIN = BASE; const RPID = new URL(BASE).hostname;
+let cookie = '', pass = 0, fail = 0;
+const ok = (c, l, x) => { if (c) { pass++; console.log('  ✔', l); } else { fail++; console.log('  ✘', l, x || ''); } };
+async function req(m, p, b, withCookie = true) {
+  const r = await fetch(BASE + p, { method: m, headers: { 'Content-Type': 'application/json', ...(cookie && withCookie ? { Cookie: cookie } : {}) }, body: b ? JSON.stringify(b) : undefined });
+  const sc = r.headers.get('set-cookie'); if (sc) cookie = sc.split(';')[0];
+  return { status: r.status, data: await r.json().catch(() => ({})) };
+}
+const b64u = (b) => Buffer.from(b).toString('base64url');
+const cborBytes = (b) => Buffer.concat([Buffer.from([0x58, b.length]), b]);
+(async () => {
+  console.log('\nSicherheitsschlüssel (virtueller Authenticator)');
+  const { publicKey, privateKey } = crypto.generateKeyPairSync('ec', { namedCurve: 'P-256' });
+  const jwk = publicKey.export({ format: 'jwk' });
+  let r = await req('POST', '/api/auth/register', { username: 'KeyUser_Test', password: 'schluessel-pw-123', accept: true });
+  ok(r.status === 201, 'Konto angelegt');
+  r = await req('POST', '/api/account/webauthn/options', { password: 'schluessel-pw-123' });
+  ok(r.status === 200 && r.data.publicKey.challenge, 'Registrierungs-Optionen');
+  const credId = crypto.randomBytes(32);
+  const clientData = Buffer.from(JSON.stringify({ type: 'webauthn.create', challenge: r.data.publicKey.challenge, origin: ORIGIN }));
+  const cose = Buffer.concat([Buffer.from([0xa5, 0x01, 0x02, 0x03, 0x26, 0x20, 0x01, 0x21]), cborBytes(Buffer.from(jwk.x, 'base64url')), Buffer.from([0x22]), cborBytes(Buffer.from(jwk.y, 'base64url'))]);
+  const rpHash = crypto.createHash('sha256').update(RPID).digest();
+  const credLen = Buffer.alloc(2); credLen.writeUInt16BE(credId.length);
+  const authData = Buffer.concat([rpHash, Buffer.from([0x45]), Buffer.alloc(4), Buffer.alloc(16), credLen, credId, cose]);
+  const attObj = Buffer.concat([Buffer.from([0xa3, 0x63, ...Buffer.from('fmt'), 0x64, ...Buffer.from('none'), 0x67, ...Buffer.from('attStmt'), 0xa0, 0x68, ...Buffer.from('authData'), 0x59]), Buffer.from([authData.length >> 8, authData.length & 255]), authData]);
+  const optId = r.data.id;
+  r = await req('POST', '/api/account/webauthn/register', { id: optId, name: 'Test-Key', credential: { id: b64u(credId), clientDataJSON: b64u(clientData), attestationObject: b64u(attObj) } });
+  ok(r.status === 201 && r.data.recovery_codes && r.data.recovery_codes.length === 10, 'Schlüssel registriert (+Wiederherstellungscodes)', JSON.stringify(r.data));
+  const codes = r.data.recovery_codes;
+  r = await req('GET', '/api/account/webauthn');
+  ok(r.data.keys.length === 1, 'Schlüssel gelistet');
+  await req('POST', '/api/auth/logout');
+  cookie = '';
+  r = await req('POST', '/api/auth/login', { username: 'KeyUser_Test', password: 'schluessel-pw-123' });
+  ok(r.data.need_2fa && r.data.methods.webauthn && r.data.methods.publicKey.allowCredentials.length === 1, 'Login verlangt zweiten Faktor (Schlüssel)');
+  const m = r.data.methods;
+  const sign = (chal, count, tamper) => {
+    const cd = Buffer.from(JSON.stringify({ type: 'webauthn.get', challenge: chal, origin: ORIGIN }));
+    const cnt = Buffer.alloc(4); cnt.writeUInt32BE(count);
+    const ad = Buffer.concat([rpHash, Buffer.from([0x01]), cnt]);
+    const data = Buffer.concat([ad, crypto.createHash('sha256').update(tamper ? Buffer.from('x') : cd).digest()]);
+    return { id: b64u(credId), clientDataJSON: b64u(cd), authenticatorData: b64u(ad), signature: b64u(crypto.sign('sha256', data, privateKey)) };
+  };
+  r = await req('POST', '/api/auth/login', { username: 'KeyUser_Test', password: 'schluessel-pw-123', webauthn: { id: m.challenge_id, credential: sign(m.publicKey.challenge, 1, true) } });
+  ok(r.status === 401, 'Falsche Signatur abgelehnt');
+  r = await req('POST', '/api/auth/login', { username: 'KeyUser_Test', password: 'schluessel-pw-123' });
+  const m2 = r.data.methods;
+  r = await req('POST', '/api/auth/login', { username: 'KeyUser_Test', password: 'schluessel-pw-123', webauthn: { id: m2.challenge_id, credential: sign(m2.publicKey.challenge, 1) } });
+  ok(r.status === 200 && r.data.user && r.data.user.webauthn_keys === 1, 'Login mit Sicherheitsschlüssel');
+  const stolen = { id: m2.challenge_id, credential: sign(m2.publicKey.challenge, 1) };
+  await req('POST', '/api/auth/logout'); cookie = '';
+  r = await req('POST', '/api/auth/login', { username: 'KeyUser_Test', password: 'schluessel-pw-123', webauthn: stolen });
+  ok(r.status === 401, 'Challenge nur einmal verwendbar (Replay abgelehnt)');
+  r = await req('POST', '/api/auth/login', { username: 'KeyUser_Test', password: 'schluessel-pw-123', code: codes[0] });
+  ok(r.status === 200, 'Wiederherstellungscode funktioniert bei verlorenem Schlüssel');
+  console.log(`\n${pass} bestanden, ${fail} fehlgeschlagen`); process.exit(fail ? 1 : 0);
+})().catch((e) => { console.error(e); process.exit(2); });

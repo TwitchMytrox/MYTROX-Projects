@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>turkac.org – Das anonyme Gaming-Forum</title>
+  <meta name="description" content="Diskutiere über Games, teile Clips, Bilder und Dateien – mit frei gewähltem Benutzernamen, ohne Klarnamen und ohne Pflicht-E-Mail.">
+  <meta name="theme-color" content="#07070f">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="turkac.org">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:title" content="turkac.org – Das anonyme Gaming-Forum">
+  <meta property="og:description" content="Threads, Clips, Reaktionen und Ränge – nur mit Benutzernamen, ohne Klarnamen.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="turkac.org – Das anonyme Gaming-Forum">
+  <meta name="twitter:description" content="Threads, Clips, Reaktionen und Ränge – nur mit Benutzernamen, ohne Klarnamen.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"turkac.org","description":"Anonymes Gaming-Forum: Threads, Clips, Bilder und Dateien teilen.","inLanguage":"de"}</script>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%8E%AE%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/pages.css">
+  <link rel="stylesheet" href="/css/landing.css">
+  <link rel="stylesheet" href="/css/chrome.css">
+</head>
+<body>
+  <canvas id="bg" aria-hidden="true"></canvas>
+  <div class="scanlines" aria-hidden="true"></div>
+  <a class="skip" href="#inhalt">Zum Inhalt springen</a>
+
+  <header id="siteHeader"></header>
+
+  <main id="inhalt">
+    <section class="wrap hero" aria-labelledby="h-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Das Gaming-Forum ohne Klarnamen</p>
+        <h1 id="h-title"><span class="glitch grad-text site-name" id="title" data-text="turkac.org">turkac.org</span></h1>
+        <p class="slogan">Zocken, posten, aufsteigen – nur mit deinem Benutzernamen.</p>
+        <div class="cta">
+          <a class="btn btn-primary btn-lg" id="ctaRegister" href="/auth/#register">Registrieren</a>
+          <p class="closed" id="regClosed" role="status" hidden>Registrierung gerade geschlossen</p>
+          <a class="btn btn-ghost btn-lg" href="/auth/#login">Anmelden</a>
+          <a class="btn btn-ghost btn-lg" id="ctaForum" href="/forum" hidden>Forum ansehen</a>
+        </div>
+      </div>
+      <svg class="hero-art" viewBox="0 0 320 260" aria-hidden="true" focusable="false">
+        <defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00f0ff"/><stop offset=".55" stop-color="#8a5cff"/><stop offset="1" stop-color="#ff2bd6"/></linearGradient></defs>
+        <g class="float">
+          <path d="M90 60h140q40 0 56 46l16 62q8 38-26 36-24-1-34-26l-8-18H86l-8 18q-10 25-34 26-34 2-26-36l16-62Q50 60 90 60Z" fill="#0d0d1d" stroke="url(#hg)" stroke-width="4"/>
+          <path d="M84 120h36M102 102v36" stroke="#00f0ff" stroke-width="6" stroke-linecap="round"/>
+          <circle cx="212" cy="108" r="9" fill="none" stroke="#b6ff3b" stroke-width="4"/><circle cx="238" cy="130" r="9" fill="none" stroke="#ff2bd6" stroke-width="4"/>
+          <circle cx="140" cy="150" r="13" fill="none" stroke="#8a5cff" stroke-width="4"/><circle cx="180" cy="150" r="13" fill="none" stroke="#8a5cff" stroke-width="4"/>
+        </g>
+        <path d="M40 232h240" stroke="#8a5cff" stroke-opacity=".35" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+    </section>
+
+    <section class="wrap" id="statsSec" aria-labelledby="h-stats" hidden>
+      <h2 id="h-stats" class="sr-only">Die Arena in Zahlen</h2>
+      <ul class="stats">
+        <li class="reveal" style="--c:var(--cyan)"><b data-stat="members">0</b><span>Mitglieder</span></li>
+        <li class="reveal" style="--c:var(--pink)"><b data-stat="threads">0</b><span>Threads</span></li>
+        <li class="reveal" style="--c:var(--lime)"><b data-stat="comments">0</b><span>Kommentare</span></li>
+        <li class="reveal" style="--c:var(--purple)"><b data-stat="files">0</b><span>Dateien</span></li>
+      </ul>
+    </section>
+
+    <section class="wrap sec" aria-labelledby="h-feat">
+      <h2 id="h-feat" class="h2 reveal">Was dich erwartet</h2>
+      <ul class="grid">
+        <li class="card reveal" style="--c:var(--cyan)">
+          <svg viewBox="0 0 120 80" aria-hidden="true" focusable="false"><rect x="8" y="8" width="104" height="64" rx="8" fill="none" stroke="#00f0ff" stroke-width="3"/><path d="M8 24h104" stroke="#00f0ff" stroke-opacity=".4" stroke-width="2"/><path d="M52 38v24l20-12Z" fill="#00f0ff"/><circle cx="20" cy="16" r="2.5" fill="#ff2bd6"/><circle cx="29" cy="16" r="2.5" fill="#b6ff3b"/></svg>
+          <h3>Clips, Bilder &amp; Dateien</h3><p>Lade Gameplay-Clips, Screenshots und Dateien hoch und zeig, was du draufhast.</p>
+        </li>
+        <li class="card reveal" style="--c:var(--pink)">
+          <svg viewBox="0 0 120 80" aria-hidden="true" focusable="false"><path d="M12 10h60a6 6 0 0 1 6 6v28a6 6 0 0 1-6 6H38L24 62V50H12a6 6 0 0 1-6-6V16a6 6 0 0 1 6-6Z" fill="none" stroke="#ff2bd6" stroke-width="3" stroke-linejoin="round"/><path d="M22 24h40M22 36h24" stroke="#ff2bd6" stroke-width="3" stroke-linecap="round"/><path d="M62 58h34q8 0 8 8v0q0 8-8 8H84l-10 6v-6h-12q-8 0-8-8v0q0-8 8-8Z" transform="translate(0 -10)" fill="none" stroke="#8a5cff" stroke-width="3"/></svg>
+          <h3>Threads &amp; Kommentare</h3><p>Starte Diskussionen, antworte auf andere und halte Themen übersichtlich zusammen.</p>
+        </li>
+        <li class="card reveal" style="--c:var(--lime)">
+          <svg viewBox="0 0 120 80" aria-hidden="true" focusable="false"><path d="M60 68C20 44 14 24 30 14c12-7 24 0 30 10 6-10 18-17 30-10 16 10 10 30-30 54Z" fill="none" stroke="#b6ff3b" stroke-width="3" stroke-linejoin="round"/><path d="M96 10l3 7 7 3-7 3-3 7-3-7-7-3 7-3Z" fill="#00f0ff"/></svg>
+          <h3>Reaktionen</h3><p>Zeig mit einem Klick, was dir gefällt – ohne dass du einen Kommentar schreiben musst.</p>
+        </li>
+        <li class="card reveal" style="--c:var(--purple)">
+          <svg viewBox="0 0 120 80" aria-hidden="true" focusable="false"><path d="M60 6l30 12v20q0 22-30 36Q30 60 30 38V18Z" fill="none" stroke="#8a5cff" stroke-width="3" stroke-linejoin="round"/><path d="M44 34l16-10 16 10M44 46l16-10 16 10" fill="none" stroke="#00f0ff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3>Ränge &amp; Abzeichen <span class="soon">bald</span></h3><p>Sammle Erfahrung, steige im Rang auf und zeig deine Abzeichen. Das System ist in Arbeit.</p>
+        </li>
+        <li class="card reveal" style="--c:var(--cyan)">
+          <svg viewBox="0 0 120 80" aria-hidden="true" focusable="false"><path d="M60 8l38 14v18q0 20-38 34Q22 60 22 40V22Z" fill="none" stroke="#00f0ff" stroke-width="3" stroke-linejoin="round"/><path d="M42 40l13 13 25-27" fill="none" stroke="#b6ff3b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3>Moderation &amp; Spam-Schutz</h3><p>Ein Team kümmert sich um Meldungen, und automatische Filter halten Spam fern.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="wrap sec" aria-labelledby="h-anon">
+      <div class="anon reveal">
+        <h2 id="h-anon" class="h2">Anonym – ohne Klarnamen</h2>
+        <p>Bei turkac.org brauchst du nur einen Benutzernamen. Das ist ehrlich gemeint, aber nicht magisch. So sieht es konkret aus:</p>
+        <ul class="ticks">
+          <li>Du meldest dich nur mit Benutzername und Passwort an, eine E-Mail-Adresse ist nicht Pflicht.</li>
+          <li>Ein vergessenes Passwort setzt du mit deinen Wiederherstellungscodes zurück, die du bei der Registrierung bekommst.</li>
+          <li>Optional schützt du dein Konto zusätzlich mit Zwei-Faktor-Anmeldung.</li>
+          <li>Wir setzen nur ein technisch notwendiges Cookie für deine Anmeldung.</li>
+          <li>Netzwerkdaten wie die IP-Adresse speichern wir nur als Hash, nicht im Klartext.</li>
+        </ul>
+        <p class="muted">Völlig unauffindbar bist du im Internet trotzdem nie. Was du selbst in Beiträgen und Dateien preisgibst, liegt bei dir.</p>
+      </div>
+    </section>
+
+    <section class="wrap sec" aria-labelledby="h-steps">
+      <h2 id="h-steps" class="h2 reveal">So startest du</h2>
+      <ol class="steps">
+        <li class="card reveal"><span class="num" aria-hidden="true">1</span><h3>Benutzernamen wählen</h3><p>Such dir einen Namen aus oder lass dir einen vorschlagen.</p></li>
+        <li class="card reveal"><span class="num" aria-hidden="true">2</span><h3>Passwort setzen &amp; Codes sichern</h3><p>Bewahre deine Wiederherstellungscodes sicher auf.</p></li>
+        <li class="card reveal"><span class="num" aria-hidden="true">3</span><h3>Loslegen</h3><p>Schreib deinen ersten Thread, kommentiere und teile deinen ersten Clip.</p></li>
+      </ol>
+    </section>
+
+    <section class="wrap sec" aria-labelledby="h-rules">
+      <div class="card reveal">
+        <h2 id="h-rules" class="h2">Community-Regeln</h2>
+        <ul class="rules">
+          <li>Sei fair und respektvoll, auch wenn du nicht einer Meinung bist.</li>
+          <li>Keine Beleidigungen, Hetze oder Drohungen.</li>
+          <li>Kein Spam, keine Werbung, keine Betrugsversuche.</li>
+          <li>Teile keine privaten Daten anderer Personen.</li>
+          <li>Lade nur Inhalte hoch, die du teilen darfst.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="wrap sec final" aria-labelledby="h-final">
+      <h2 id="h-final" class="h2 reveal">Bereit für die Arena?</h2>
+      <div class="cta center reveal">
+        <a class="btn btn-primary btn-lg" id="ctaRegister2" href="/auth/#register">Registrieren</a>
+        <p class="closed" id="regClosed2" role="status" hidden>Registrierung gerade geschlossen</p>
+        <a class="btn btn-ghost btn-lg" href="/auth/#login">Anmelden</a>
+      </div>
+    </section>
+  </main>
+
+  <footer id="siteFooter"></footer>
+
+  <script src="/js/chrome.js"></script>
+  <script src="/js/bg.js"></script>
+  <script src="/js/landing.js"></script>
+  <script src="/js/pwa.js"></script>
+<script src="/js/sfx.js"></script><script src="/js/fx.js"></script>
+</body>
+</html>

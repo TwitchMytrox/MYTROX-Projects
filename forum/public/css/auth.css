@@ -1,0 +1,70 @@
+/* Login / Registrierung (ergänzt pages.css) */
+.auth-top { padding: var(--sp-3) var(--sp-2) 0; text-align: center; }
+.auth-logo { font-family: var(--font-head); font-weight: 900; font-size: 1.375rem; letter-spacing: .1em; color: var(--text); display: inline-flex; gap: 10px; align-items: center; min-height: var(--tap); }
+.auth-logo:hover { text-decoration: none; color: var(--text); }
+.auth-logo .mark { color: var(--cyan); animation: logoglow 2.6s ease-in-out infinite; }
+@keyframes logoglow {
+  0%, 100% { text-shadow: 0 0 8px var(--cyan), 0 0 18px rgba(0, 240, 255, .5); }
+  50% { text-shadow: 0 0 14px var(--pink), 0 0 30px rgba(255, 43, 214, .7); color: var(--pink); }
+}
+.auth-main { flex: 1; display: grid; place-items: start center; padding: var(--sp-3) var(--sp-2) 64px; }
+.auth-card {
+  width: 100%; max-width: 480px; padding: 0; overflow: hidden; border-radius: var(--r-lg);
+  background-image: var(--surface); border-color: rgba(0, 240, 255, .35);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .55), 0 0 44px rgba(138, 92, 255, .2); animation: pop .5s both;
+}
+.auth-card::before { /* Neon-Linie oben */
+  content: ''; position: absolute; left: 24px; right: 24px; top: 0; height: 2px; z-index: 2; pointer-events: none;
+  background: linear-gradient(90deg, transparent, var(--cyan), var(--purple), var(--pink), transparent); background-size: 200% 100%; animation: slide 6s linear infinite;
+}
+@keyframes slide { to { background-position: -200% 0; } }
+@keyframes pop { from { opacity: 0; transform: translateY(20px) scale(.97); } }
+.tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-bottom: 1px solid var(--line); background: #000; }
+.tab { border: 0; border-radius: 0; border-right: 1px solid var(--line); min-height: var(--tap); padding: 12px 6px; font-family: var(--font-head); font-size: .6875rem; letter-spacing: .08em; text-transform: uppercase; color: #dfe2ff; border-bottom: 3px solid transparent; line-height: 1.3; }
+.tab:last-child { border-right: 0; }
+.tab:hover { border-color: var(--line); border-bottom-color: var(--red-hi); box-shadow: none; }
+.tab:active { box-shadow: none; transform: none; }
+.tab[aria-selected=true] { color: #fff; border-bottom-color: var(--cyan); background-color: #0b0b1c; font-weight: 900; box-shadow: inset 0 -10px 18px -12px rgba(0, 240, 255, .55); }
+.tab[aria-selected=true]:hover { background-color: var(--red-deep); }
+.panel { padding: var(--sp-3) var(--sp-3) var(--sp-4); }
+.panel[hidden] { display: none; }
+.panel h1, .panel h2 { font-family: var(--font-head); font-size: 1.25rem; margin: 0 0 6px; letter-spacing: .04em; }
+.panel p.lead { color: var(--muted); margin: 0 0 var(--sp-3); }
+.meter { height: 8px; background: var(--panel-2); border: 1px solid var(--field-bd); border-radius: var(--r-pill); overflow: hidden; margin-top: var(--sp-0); }
+.meter i { display: block; height: 100%; width: 0; border-radius: var(--r-pill); transition: width .3s, background .3s; position: relative; overflow: hidden; }
+.meter i::after { content: ''; position: absolute; top: 0; bottom: 0; left: 0; width: 40%; pointer-events: none; background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .55), transparent); transform: translateX(-120%); animation: gloss 2.4s ease-in-out infinite; }
+@keyframes gloss { 60%, 100% { transform: translateX(320%); } }
+.codes { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sp-1); margin: var(--sp-2) 0; padding: 0; list-style: none; counter-reset: c; }
+.codes li { counter-increment: c; font-family: 'Consolas', 'Courier New', monospace; font-size: 1.0625rem; letter-spacing: .08em; background: var(--bg); border: 1px dashed var(--field-bd); border-radius: var(--r-sm); padding: 10px; text-align: center; color: var(--lime); user-select: all; }
+.btn-row { margin-bottom: var(--sp-2); }
+.who { text-align: center; padding: 10px 0; }
+.back-link { text-align: center; margin-top: var(--sp-3); font-size: 1rem; line-height: 2.4; padding: 0 var(--sp-2); }
+.back-link a { display: inline-block; padding: 0 6px; }
+.cookie-note { font-size: .9375rem; color: var(--muted); border-left: 4px solid var(--purple); padding: 2px 0 2px 12px; margin: 0 0 14px; }
+@media (max-width: 420px) { .codes { grid-template-columns: 1fr; } .panel { padding: var(--sp-3) var(--sp-2); } .tab { font-size: .625rem; letter-spacing: .05em; padding: 10px 4px; } }
+.auth-card .btn-block { margin-top: var(--sp-0); }
+.panel .btn-row .btn { flex: 1; }
+[hidden] { display: none !important; }
+@media (max-width: 480px) { .input-row.wrapping { flex-wrap: wrap; } .input-row.wrapping > input { flex-basis: 100%; } }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.captcha-row { display: flex; gap: var(--sp-1); align-items: center; flex-wrap: wrap; }
+.captcha-img { border: 1px solid var(--field-bd); border-radius: var(--r-sm); overflow: hidden; line-height: 0; max-width: 100%; }
+.captcha-img svg { display: block; max-width: 100%; height: auto; }
+#r-captcha { width: 100%; min-height: var(--tap); background: var(--field-bg); border: 1px solid var(--field-bd); border-radius: var(--r-sm); padding: 10px 14px; letter-spacing: .3em; text-transform: uppercase; }
+#r-captcha:hover { border-color: var(--red-hi); }
+#r-captcha:focus { border-color: var(--cyan); }
+@media (pointer: coarse) { .input-row .mini-btn { min-width: var(--tap); } }
+
+html[data-theme=light] .auth-card { box-shadow: 0 16px 48px rgba(21, 22, 51, .18); border-color: var(--line); }
+html[data-theme=light] .tabs { background: #000; }
+html[data-theme=light] .auth-logo .mark { animation: none; text-shadow: none; }
+html[data-contrast=high] .auth-card { border: 2px solid var(--line); box-shadow: none; }
+html[data-contrast=high] .auth-card::before { display: none; }
+html[data-contrast=high] .tab[aria-selected=true] { border-bottom-width: 5px; }
+@media (prefers-reduced-motion: reduce) { .auth-card::before, .meter i::after { animation: none !important; } }
+html[data-motion=reduce] .auth-card::before, html[data-motion=reduce] .meter i::after { animation: none !important; }
+@media (forced-colors: active) {
+  .auth-card::before, .meter i::after { display: none; }
+  .tabs, .auth-card { border: 2px solid CanvasText; }
+  .meter i { background: Highlight; forced-color-adjust: none; }
+}

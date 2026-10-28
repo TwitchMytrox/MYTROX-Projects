@@ -1,0 +1,265 @@
+/* turkac.org – Spiele */
+.sp-main { max-width: 980px; }
+.sp-top { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); margin: 12px 0 4px; }
+.sp-stat { padding: 12px 14px; border: 1px solid var(--line); border-radius: 14px; background: #0a0a14; }
+.sp-stat b { display: block; font-family: var(--font-head); font-size: 20px; font-variant-numeric: tabular-nums; }
+.sp-stat span { color: var(--muted); font-size: 14px; }
+.sp-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin: 14px 0; }
+.sp-tabs button { min-height: var(--tap); padding: 8px 16px; border-radius: 999px; border: 2px solid var(--line); background: #000; color: #fff; font: inherit; font-weight: 700; cursor: pointer; transition: background .15s, border-color .15s, transform .1s; }
+.sp-tabs button:hover, .sp-tabs button:focus-visible, .sp-tabs button:active { background: #d4142c; border-color: #d4142c; }
+.sp-tabs button[aria-selected="true"] { border-color: #fff; }
+.sp-tabs button:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.sp-panel { background: #10101c; border: 1px solid var(--line); border-radius: 18px; padding: 20px; }
+.sp-panel h2 { font-family: var(--font-head); font-size: 18px; margin: 0 0 6px; }
+.sp-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; margin: 12px 0; }
+.sp-row label { margin: 0; display: grid; gap: 4px; font-weight: 700; }
+.sp-row input[type=number] { width: 8rem; }
+.sp-chip { min-height: var(--tap); padding: 6px 14px; border-radius: 999px; border: 2px solid var(--line); background: #000; color: #fff; font: inherit; cursor: pointer; }
+.sp-chip:hover, .sp-chip:focus-visible, .sp-chip:active, .sp-chip[aria-pressed="true"] { background: #d4142c; border-color: #d4142c; }
+.sp-chip:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+.sp-result { min-height: 3rem; margin-top: 12px; padding: 10px 14px; border-radius: 12px; border: 1px solid var(--line); background: #0a0a14; font-weight: 700; }
+.sp-result.win { border-color: #35e0a1; color: #35e0a1; }
+.sp-result.lose { border-color: #ff4d6d; color: #ff9aae; }
+.sp-hand { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0; min-height: 84px; }
+.sp-card { width: 58px; height: 82px; border-radius: 10px; background: #fff; color: #111; display: grid; place-items: center; font: 700 22px var(--font-head); border: 2px solid #222; }
+.sp-card.red { color: #c8102e; }
+.sp-card.back { background: repeating-linear-gradient(45deg, #8a0a20, #8a0a20 6px, #c8102e 6px, #c8102e 12px); color: transparent; }
+.sp-reels { display: flex; gap: 10px; justify-content: center; margin: 14px 0; }
+.sp-reel { width: 92px; height: 100px; display: grid; place-items: center; font-size: 52px; border-radius: 16px; background: #000; border: 3px solid #fff; }
+.sp-reel.stop { border-color: #35e0a1; }
+.sp-ball { width: 120px; height: 120px; margin: 10px auto; border-radius: 50%; display: grid; place-items: center; font: 900 44px var(--font-head); border: 5px solid #fff; background: #0b6b2c; color: #fff; }
+.sp-ball.red { background: #c8102e; } .sp-ball.black { background: #111; } .sp-ball.green { background: #0b6b2c; }
+.sp-react { display: grid; place-items: center; width: 100%; min-height: 220px; border-radius: 20px; border: 4px solid #fff; font: 900 26px var(--font-head); color: #fff; cursor: pointer; background: #000; text-align: center; padding: 16px; }
+.sp-react.wait { background: #8a0a20; } .sp-react.go { background: #0b8a3c; }
+.sp-react:focus-visible { outline: 4px solid var(--cyan); outline-offset: 4px; }
+.sp-mem { display: grid; grid-template-columns: repeat(4, minmax(0, 76px)); gap: 10px; justify-content: center; margin: 14px 0; }
+.sp-mem button { aspect-ratio: 1; font-size: 34px; border-radius: 14px; border: 3px solid #fff; background: #000; color: #fff; cursor: pointer; min-width: var(--tap); }
+.sp-mem button:hover, .sp-mem button:focus-visible { background: #d4142c; }
+.sp-mem button.up { background: #1a1a3a; } .sp-mem button.ok { background: #0b8a3c; border-color: #35e0a1; }
+.sp-mem button:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; }
+.sp-snake { display: block; margin: 10px auto; border: 4px solid #fff; border-radius: 12px; background: #000; max-width: 100%; height: auto; touch-action: none; }
+.sp-pad { display: grid; grid-template-columns: repeat(3, 64px); gap: 8px; justify-content: center; margin: 8px 0; }
+.sp-pad button { min-height: 64px; font-size: 26px; border-radius: 14px; border: 2px solid #fff; background: #000; color: #fff; cursor: pointer; }
+.sp-pad button:hover, .sp-pad button:active, .sp-pad button:focus-visible { background: #d4142c; }
+.sp-pad .u { grid-column: 2; } .sp-pad .l { grid-column: 1; grid-row: 2; } .sp-pad .d { grid-column: 2; grid-row: 2; } .sp-pad .r { grid-column: 3; grid-row: 2; }
+.sp-table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+.sp-table th, .sp-table td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+.sp-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+.sp-rules { color: var(--muted); font-size: 15px; }
+.sp-warn { border: 1px solid #ffb020; border-radius: 14px; padding: 12px 16px; background: rgba(255, 176, 32, .08); margin: 12px 0; }
+.sp-pay { display: flex; flex-wrap: wrap; gap: 6px 14px; color: var(--muted); font-size: 15px; }
+.sp-grid-bets { display: grid; gap: 8px; margin: 10px 0; }
+.sp-grid-bets .grp { display: flex; flex-wrap: wrap; gap: 8px; }
+@media (max-width: 480px) { .sp-card { width: 48px; height: 70px; font-size: 18px; } .sp-reel { width: 76px; height: 86px; font-size: 42px; } .sp-mem { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+.sp-panel input[type=checkbox], .sp-warn input[type=checkbox] { width: 26px; height: 26px; flex: none; accent-color: #d4142c; }
+.sp-row label { min-width: 0; max-width: 100%; }
+.sp-row select { max-width: 100%; }
+.sp-table caption { text-align: left; white-space: normal; }
+.sp-table th, .sp-table td { overflow-wrap: anywhere; }
+
+/* Croupier */
+.dealer-bubble { position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%); z-index: 300; max-width: min(92vw, 560px); padding: 12px 16px; border-radius: 14px; border: 1px solid #35e0a1; background: #0a0a14; color: #fff; font-weight: 600; line-height: 1.4; box-shadow: 0 6px 24px #000a; }
+.dealer-bubble[hidden] { display: none; }
+.dealer-toggle { min-height: 44px; }
+
+/* Menü + eigene Spiel-Ansicht: die Seite selbst scrollt nie, nur das geöffnete Spiel bei Bedarf */
+html:has(body.sp-page) { overflow: hidden; height: 100%; }
+body.sp-page { overflow: hidden; height: 100dvh; }
+body.sp-page #siteFooter { display: none; }
+body.sp-page .sp-main { height: calc(100dvh - var(--sp-hdr, 64px)); overflow: hidden; padding-top: 8px; padding-bottom: 12px; display: flex; flex-direction: column; }
+body.sp-page #app { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.sp-lobby { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 8px; overflow: hidden; }
+.sp-lobby h1 { margin: 0; font-size: clamp(20px, 3.4vh, 30px); }
+.sp-lobby .lead { margin: 0; }
+.sp-lobby .sp-top { margin: 0; gap: 8px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.sp-lobby .sp-stat { padding: 8px 12px; }
+.sp-lobby .sp-stat b { font-size: clamp(15px, 2.4vh, 20px); }
+.sp-lobby .sp-stat span { font-size: 12px; }
+.sp-lobby .btn-row { margin: 0; }
+.sp-lobby .sp-warn { margin: 0; padding: 8px 12px; }
+.sp-menu { flex: 1; min-height: 0; display: grid; gap: 10px; grid-template-columns: repeat(5, minmax(0, 1fr)); grid-auto-rows: minmax(0, 1fr); }
+.sp-tile { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; min-height: 56px; padding: 6px; border-radius: 18px; border: 2px solid var(--line); background: #10101c; color: #fff; font: inherit; font-weight: 700; cursor: pointer; transition: background .15s, border-color .15s, transform .1s; }
+.sp-tile:hover, .sp-tile:active { background: #d4142c; border-color: #d4142c; transform: translateY(-2px); }
+.sp-tile:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.sp-ti { font-size: clamp(26px, 5vh, 48px); line-height: 1; }
+.sp-tn { font-size: clamp(13px, 1.9vh, 17px); text-align: center; }
+@media (max-width: 700px) {
+  .sp-menu { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+  .sp-tn { font-size: 12px; }
+  .sp-ti { font-size: 28px; }
+  .sp-lobby .sp-top { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sp-lobby .lead { display: none; }
+  .sp-lobby h1 { display: none; }
+  .sp-lobby .sp-top .sp-stat:nth-child(2), .sp-lobby .sp-top .sp-stat:nth-child(3) { display: none; }
+  .sp-lobby .sp-warn { font-size: 14px; }
+}
+.sp-overlay { position: fixed; inset: 0; z-index: 200; background: #07070f; display: flex; flex-direction: column; }
+.sp-overlay[hidden] { display: none; }
+.sp-ov-bar { flex: none; display: flex; align-items: center; gap: 12px; padding: 10px 16px; border-bottom: 1px solid var(--line); background: #0a0a14; }
+.sp-ov-title { margin: 0; font-family: var(--font-head); font-size: 18px; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sp-ov-cr { font-family: var(--font-head); font-variant-numeric: tabular-nums; }
+.sp-ov-body { flex: 1; min-height: 0; overflow-y: auto; padding: 14px 16px 24px; width: 100%; max-width: 980px; margin: 0 auto; }
+body.sp-open { overflow: hidden; }
+
+/* ===== Spieltisch: Wette & Gewinn links, Bühne rechts, größere Animationen ===== */
+.sp-stage { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 18px; align-items: start; margin-top: 10px; }
+.sp-col { min-width: 0; }
+.sp-hud { position: sticky; top: 0; display: grid; gap: 12px; }
+.hud-box { padding: 12px 16px; border-radius: 16px; border: 2px solid var(--line); background: linear-gradient(160deg, #14142a, #0a0a14); }
+.hud-box span { display: block; color: var(--muted); font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
+.hud-v { display: block; font: 900 clamp(24px, 4vh, 34px) var(--font-head); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.hud-box.big { border-color: #e8c660; box-shadow: 0 0 22px #e8c66022 inset; }
+.hud-box.big .hud-v { font-size: clamp(34px, 7vh, 58px); color: #fff; transition: color .2s, text-shadow .2s; }
+.hud-v.pos { color: #35e0a1; text-shadow: 0 0 18px #35e0a188; animation: hudpop .5s ease-out; }
+.hud-v.neg { color: #ff6b86; }
+@keyframes hudpop { 0% { transform: scale(.85); } 60% { transform: scale(1.12); } 100% { transform: scale(1); } }
+@media (max-width: 760px) {
+  .sp-stage { grid-template-columns: 1fr; }
+  .sp-hud { position: static; grid-template-columns: 1fr 1fr; }
+}
+.sbtn.big, .sup-main button.sbtn.big { min-height: 56px; padding: 10px 26px; font-size: 18px; }
+
+/* Blackjack-Tisch */
+.bj-felt { display: grid; gap: 18px; padding: 18px; border-radius: 22px; border: 3px solid #5a3a14; background: radial-gradient(ellipse at 50% 30%, #1c7a4a, #0d4a2a 70%, #082f1c); box-shadow: inset 0 0 60px #0008, 0 8px 28px #0008; }
+.bj-seat { display: grid; justify-items: center; gap: 6px; }
+.bj-seat h3 { margin: 0; font-size: 14px; letter-spacing: .12em; text-transform: uppercase; color: #bfe9cf; }
+.sp-hand { justify-content: center; min-height: 138px; gap: 10px; perspective: 800px; }
+.sp-card { position: relative; width: 84px; height: 120px; border-radius: 12px; font-size: 20px; box-shadow: 0 6px 14px #0009; transform-style: preserve-3d; align-content: space-between; padding: 6px 8px; justify-items: start; }
+.sp-card .cr { font: 800 24px var(--font-head); line-height: 1; }
+.sp-card .cs { font-size: 46px; line-height: 1; align-self: center; justify-self: center; margin-top: -8px; }
+.sp-card.back { background: repeating-linear-gradient(45deg, #8a0a20, #8a0a20 7px, #c8102e 7px, #c8102e 14px); border-color: #fff; }
+.sp-card.deal { animation: dealin .45s cubic-bezier(.2, .8, .2, 1) both; }
+.sp-card.flipin { animation: flipin .5s ease-out both; }
+@keyframes dealin { from { opacity: 0; transform: translate(160px, -120px) rotate(24deg) scale(.7); } to { opacity: 1; transform: none; } }
+@keyframes flipin { from { transform: rotateY(90deg); } to { transform: rotateY(0); } }
+.bj-total { display: flex; align-items: baseline; gap: 10px; min-height: 64px; padding: 4px 22px; border-radius: 999px; background: #0008; border: 2px solid #ffffff44; }
+.bj-total small { font-size: 14px; color: #cfe9d9; text-transform: uppercase; letter-spacing: .08em; }
+.bj-total .num { font: 900 clamp(34px, 6vh, 52px) var(--font-head); font-variant-numeric: tabular-nums; line-height: 1.1; }
+.bj-total.tw { border-color: #e8c660; box-shadow: 0 0 22px #e8c660aa; } .bj-total.tw .num { color: #e8c660; }
+.bj-total.bust { border-color: #ff4d6d; } .bj-total.bust .num { color: #ff6b86; }
+.bj-total:empty { visibility: hidden; }
+
+/* Slots */
+.sp-reels { gap: 16px; padding: 20px; margin: 10px 0 16px; border-radius: 24px; border: 4px solid #e8c660; background: linear-gradient(#1a1030, #0a0618); box-shadow: 0 0 30px #7c3aed55 inset, 0 8px 28px #0008; }
+.sp-reel { width: clamp(84px, 16vw, 150px); height: clamp(100px, 20vw, 180px); font-size: clamp(54px, 10vw, 96px); border-radius: 18px; border: 3px solid #ffffff55; background: linear-gradient(#000, #15102a 50%, #000); transition: border-color .2s, box-shadow .2s; }
+.sp-reel.spin { animation: reelspin .09s linear infinite; filter: blur(1.5px); border-color: #7c3aed; }
+.sp-reel.stop { animation: reelstop .35s ease-out; }
+.sp-reel.win { border-color: #e8c660; box-shadow: 0 0 28px #e8c660cc; animation: reelwin .7s ease-in-out 3; }
+@keyframes reelspin { from { transform: translateY(-5px); } to { transform: translateY(5px); } }
+@keyframes reelstop { 0% { transform: translateY(-14px); } 60% { transform: translateY(5px); } 100% { transform: none; } }
+@keyframes reelwin { 50% { transform: scale(1.08); } }
+.sp-pay { font-size: 17px; }
+
+/* Roulette-Rad */
+.rw-wrap { display: grid; justify-items: center; gap: 8px; }
+.rw { position: relative; width: min(100%, clamp(240px, 46vh, 400px)); aspect-ratio: 1; filter: drop-shadow(0 10px 22px #000a); }
+.rw-rotor, .rw-orbit { position: absolute; inset: 0; will-change: transform; }
+.rw-rotor svg { width: 100%; height: 100%; display: block; }
+.rw-ball { position: absolute; left: 50%; top: 7.5%; width: 4.2%; aspect-ratio: 1; margin-left: -2.1%; border-radius: 50%; background: radial-gradient(circle at 30% 30%, #fff, #bbb); box-shadow: 0 0 8px #fff, 0 2px 4px #000; }
+.rw-pointer { position: absolute; left: 50%; top: -2%; width: 0; height: 0; margin-left: -10px; border: 10px solid transparent; border-top: 18px solid #e8c660; filter: drop-shadow(0 2px 3px #000); }
+.sp-ball { width: 96px; height: 96px; font-size: 38px; margin: 0 auto; transition: transform .2s; }
+.sp-ball.red, .sp-ball.black { animation: reelstop .45s ease-out; }
+.sp-grid-bets .grp .sp-chip { min-height: 48px; font-size: 16px; }
+
+/* Reaktion, Memory, Snake */
+.sp-react { min-height: clamp(260px, 42vh, 420px); font-size: clamp(28px, 5vh, 44px); transition: background .12s, transform .12s; }
+.sp-react.go { animation: gopulse .5s ease-in-out infinite; }
+@keyframes gopulse { 50% { transform: scale(1.02); box-shadow: 0 0 40px #35e0a1; } }
+.sp-mem { grid-template-columns: repeat(4, minmax(0, clamp(70px, 14vh, 112px))); gap: 12px; }
+.sp-mem button { font-size: clamp(32px, 6vh, 54px); transition: transform .35s, background .2s; }
+.sp-mem button.up { animation: memflip .4s ease-out; }
+.sp-mem button.ok { animation: memok .5s ease-out; }
+@keyframes memflip { from { transform: rotateY(90deg); } to { transform: rotateY(0); } }
+@keyframes memok { 50% { transform: scale(1.15); } }
+.sp-snake { box-shadow: 0 0 30px #35e0a144; border-color: #35e0a1; }
+.sp-pad button { min-height: 72px; }
+
+/* Konfetti */
+.sp-confetti { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 250; }
+.sp-confetti span { position: absolute; top: -40px; animation: confall linear forwards; }
+@keyframes confall { to { transform: translateY(110vh) rotate(540deg); opacity: .9; } }
+@media (prefers-reduced-motion: reduce) {
+  .sp-card.deal, .sp-card.flipin, .sp-reel, .sp-reel.spin, .sp-reel.stop, .sp-reel.win, .sp-react.go, .sp-mem button.up, .sp-mem button.ok, .hud-v.pos { animation: none !important; }
+  .sp-reel.spin { filter: none; }
+}
+.sp-card { width: clamp(58px, 10.5vh, 84px); height: clamp(84px, 15vh, 120px); }
+.sp-card .cr { font-size: clamp(16px, 2.8vh, 24px); } .sp-card .cs { font-size: clamp(30px, 5.4vh, 46px); }
+.sp-hand { min-height: clamp(90px, 16vh, 138px); }
+.bj-felt { gap: clamp(8px, 2vh, 18px); padding: clamp(10px, 2vh, 18px); }
+.bj-total { min-height: 0; padding: 2px 20px; }
+.bj-total .num { font-size: clamp(30px, 5.5vh, 52px); }
+@media (max-height: 760px) { .sp-panel > .muted { display: none; } }
+.rw-layout { display: grid; grid-template-columns: minmax(0, clamp(220px, 42vh, 340px)) minmax(0, 1fr); gap: 18px; align-items: start; }
+.rw-layout .rw { width: 100%; }
+.rw-side { min-width: 0; }
+@media (max-width: 900px) { .rw-layout { grid-template-columns: 1fr; } .rw { width: min(100%, 300px); margin: 0 auto; } }
+
+/* ===== Casino-Raum in 3D ===== */
+.sp-overlay { background: radial-gradient(ellipse 70% 55% at 50% 38%, #3a1030 0%, #190a22 45%, #07060d 100%); animation: roomin .55s cubic-bezier(.2, .8, .2, 1); perspective: 1400px; }
+@keyframes roomin { from { opacity: 0; transform: scale(.88) translateZ(-200px); filter: blur(6px); } to { opacity: 1; transform: none; filter: none; } }
+.sp-overlay::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 40% 30% at 50% 0%, #ffe9a855, transparent 70%), repeating-linear-gradient(45deg, #ffffff05 0 2px, transparent 2px 14px); }
+.sp-ov-bar { position: relative; background: linear-gradient(#0c0816ee, #0c081699); border-bottom: 2px solid #e8c660; box-shadow: 0 6px 24px #0008; }
+.sp-ov-body { position: relative; }
+.sp-overlay .sp-panel { background: transparent; border: 0; padding: 4px 0; }
+.sp-overlay .sp-panel > h2 { display: none; }
+.sp-overlay .sp-result { background: #0a0714cc; border-color: #e8c66066; }
+.sp-overlay .sp-chip { background: radial-gradient(circle at 30% 25%, #2b2440, #0a0714); border-color: #e8c66088; }
+.sp-overlay .sp-chip:hover, .sp-overlay .sp-chip[aria-pressed="true"] { background: #d4142c; border-color: #ffd36b; }
+.hud-box { background: linear-gradient(160deg, #23183a, #0b0814); border: 2px solid #e8c66088; box-shadow: 0 6px 18px #000a, inset 0 1px 0 #ffffff22; }
+
+/* Blackjack: geneigter Filztisch mit Holzrand */
+.bj-scene { perspective: 1200px; padding: 6px 0 18px; }
+.bj-felt { position: relative; transform: rotateX(22deg); transform-origin: 50% 100%; border: 0; border-radius: 28px 28px 220px 220px / 28px 28px 120px 120px; padding: clamp(14px, 3vh, 28px) clamp(14px, 4vw, 40px) clamp(40px, 8vh, 70px);
+  background: radial-gradient(ellipse at 50% 35%, #22915a 0%, #12663b 55%, #0a3d24 100%);
+  box-shadow: 0 0 0 10px #4a2a10, 0 0 0 13px #8a5a22, 0 0 0 16px #2b1608, 0 40px 60px #000c, inset 0 0 90px #0009; }
+.bj-felt::before { content: "BLACKJACK PAYS 3 TO 2"; position: absolute; left: 0; right: 0; bottom: 4%; text-align: center; font: 700 clamp(10px, 1.8vh, 15px) var(--font-head); letter-spacing: .35em; color: #e8c66099; pointer-events: none; text-shadow: 0 1px 0 #0006; }
+.bj-felt::after { content: ""; position: absolute; left: 12%; right: 12%; bottom: 7%; height: 38%; border: 2px solid #e8c66055; border-top: 0; border-radius: 0 0 50% 50% / 0 0 100% 100%; pointer-events: none; }
+.bj-seat, .bj-chips, .bj-shoe { position: relative; z-index: 1; }
+.bj-shoe { position: absolute; right: 4%; top: 6%; width: clamp(46px, 8vh, 70px); height: clamp(60px, 11vh, 96px); border-radius: 8px 8px 4px 4px; background: linear-gradient(135deg, #1a1a1a, #3a3a3a 40%, #101010); box-shadow: 0 8px 14px #000a, inset 0 0 0 2px #e8c66066; transform: translateZ(18px) rotate(6deg); }
+.bj-shoe::after { content: ""; position: absolute; left: 10%; right: 10%; top: -6px; height: 10px; border-radius: 3px; background: repeating-linear-gradient(90deg, #fff 0 5px, #c8102e 5px 8px); }
+.bj-chips { position: absolute; left: 6%; bottom: 14%; z-index: 2; }
+.chipstack { position: relative; width: 62px; height: 62px; }
+.chip3d { position: absolute; left: 0; bottom: calc(var(--i) * 6px); width: 62px; height: 62px; border-radius: 50%; background: radial-gradient(circle, var(--c1) 0 42%, var(--c2) 43% 60%, var(--c1) 61% 100%); border: 3px dashed #ffffffcc; box-shadow: 0 5px 0 var(--c3), 0 7px 6px #000a; transform: rotateX(55deg); animation: chipdrop .4s cubic-bezier(.3, 1.4, .5, 1) both; animation-delay: calc(var(--i) * 60ms); }
+.chip3d.c10 { --c1: #c8102e; --c2: #f4f4f4; --c3: #7a0a1c; } .chip3d.c50 { --c1: #1d5fd1; --c2: #f4f4f4; --c3: #0f3578; } .chip3d.c100 { --c1: #1a1a1a; --c2: #e8c660; --c3: #000; }
+@keyframes chipdrop { from { transform: rotateX(55deg) translateY(-70px); opacity: 0; } to { transform: rotateX(55deg); opacity: 1; } }
+.sp-card { background: linear-gradient(145deg, #ffffff, #e9e6dc); border: 1px solid #00000033; transform: rotate(var(--r, 0deg)); box-shadow: 0 10px 16px #000b, 0 1px 0 #fff inset; }
+.sp-card.back { background: repeating-linear-gradient(45deg, #8a0a20 0 7px, #c8102e 7px 14px); border: 3px solid #fff; }
+.sp-card.deal { animation: dealin3d .55s cubic-bezier(.2, .8, .2, 1) both; }
+.sp-card.flipin { animation: flipin3d .6s ease-out both; }
+@keyframes dealin3d { from { opacity: 0; transform: translate3d(180px, -140px, 120px) rotateX(70deg) rotateZ(50deg) scale(.6); } 60% { opacity: 1; } to { opacity: 1; transform: rotate(var(--r, 0deg)); } }
+@keyframes flipin3d { 0% { transform: rotateY(180deg) translateZ(30px); } 100% { transform: rotateY(0) rotate(var(--r, 0deg)); } }
+.bj-total { background: #000a; backdrop-filter: blur(2px); box-shadow: 0 6px 14px #0009; }
+
+/* Slot-Automat mit echten Walzen */
+.slot-cab { position: relative; padding: 14px clamp(12px, 3vw, 28px) 22px; border-radius: 26px; background: linear-gradient(180deg, #6a1fb0, #3a0f6e 40%, #240a46); border: 4px solid #e8c660; box-shadow: 0 0 0 4px #7a5a14, 0 26px 40px #000c, inset 0 2px 0 #ffffff55, inset 0 -20px 40px #0008; }
+.cab-title { text-align: center; font: 900 clamp(14px, 2.6vh, 22px) var(--font-head); letter-spacing: .25em; color: #ffe9a8; text-shadow: 0 0 14px #ffb020, 0 2px 0 #5a3a00; margin: 4px 0 10px; }
+.cab-bulbs { display: flex; justify-content: space-between; padding: 0 6px; }
+.cab-bulbs i { width: 12px; height: 12px; border-radius: 50%; background: #ffd36b; box-shadow: 0 0 10px #ffb020; animation: bulb 1.2s steps(2) infinite; animation-delay: calc(var(--k) * 90ms); }
+.cab-bulbs.flash i { animation-duration: .25s; background: #fff; }
+@keyframes bulb { 50% { background: #5a3a00; box-shadow: none; } }
+.sp-reels { position: relative; perspective: 900px; gap: clamp(8px, 1.6vw, 16px); padding: 14px; margin: 0; border-radius: 16px; border: 4px solid #1a0b30; background: #0a0414; box-shadow: inset 0 0 30px #000, 0 2px 0 #ffffff33; }
+.sp-reel3d { position: relative; width: clamp(88px, 15vw, 140px); height: 190px; overflow: hidden; border-radius: 10px; background: #0a0414; border: 2px solid #000; }
+.sp-reel3d::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(#000 0%, #0000 28%, #0000 72%, #000 100%), linear-gradient(90deg, #0008, #0000 18%, #0000 82%, #0008); }
+.cyl { position: absolute; left: 0; top: 43px; width: 100%; height: 104px; transform-style: preserve-3d; will-change: transform; }
+.face { position: absolute; inset: 0; display: grid; place-items: center; font-size: 66px; line-height: 1; backface-visibility: hidden; background: linear-gradient(#cfc9b8, #fffdf4 50%, #cfc9b8); }
+.sp-reel3d.win { box-shadow: 0 0 0 3px #e8c660, 0 0 26px #ffd36b; animation: reelwin3d .6s ease-in-out 3; }
+@keyframes reelwin3d { 50% { filter: brightness(1.35); } }
+.sp-reel3d.stop { animation: reelstop .35s ease-out; }
+.cab-line { position: absolute; left: 2px; right: 2px; top: 50%; height: 3px; background: linear-gradient(90deg, transparent, #ff3355, transparent); box-shadow: 0 0 10px #ff3355; pointer-events: none; opacity: .75; }
+
+/* Roulette: geneigtes Rad in Holzschüssel */
+.rw-scene { perspective: 900px; padding: 10px 0 0; }
+.rw { transform: rotateX(46deg); transform-origin: 50% 60%; margin-bottom: -10%; margin-top: -8%; border-radius: 50%; box-shadow: 0 0 0 10px #4a2a10, 0 0 0 14px #8a5a22, 0 0 0 17px #2b1608, 0 36px 36px #000b; filter: none; }
+.rw-pointer { top: -6%; }
+.rw-ball { box-shadow: 0 0 10px #fff, 0 6px 6px #000c; }
+
+/* Memory: Karten mit echter 3D-Drehung */
+.sp-mem { perspective: 800px; }
+.sp-mem button { border-color: #e8c660aa; background: linear-gradient(145deg, #3a1a6e, #1a0b3a); box-shadow: 0 6px 12px #000a; backface-visibility: visible; }
+.sp-mem button.up { background: linear-gradient(145deg, #fffdf4, #d6d0bc); color: #111; animation: memflip3d .45s ease-out; }
+.sp-mem button.ok { background: linear-gradient(145deg, #1fb866, #0b6b2c); animation: memok .5s ease-out; }
+@keyframes memflip3d { from { transform: rotateY(180deg); } to { transform: rotateY(0); } }
+@media (prefers-reduced-motion: reduce) { .sp-overlay, .chip3d, .sp-card.deal, .sp-card.flipin, .cab-bulbs i, .sp-reel3d.win { animation: none !important; } .bj-felt, .rw { transform: none; } }
+@media (max-width: 760px) { .bj-felt { transform: none; } .rw { transform: rotateX(30deg); margin-bottom: -10%; } }
+.rw-scene { width: 100%; }

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wartungsarbeiten – turkac.org</title>
+  <meta name="description" content="Das Forum ist wegen Wartungsarbeiten kurz nicht erreichbar.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#07070f">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%8E%AE%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/pages.css">
+  <link rel="stylesheet" href="/css/maintenance.css">
+</head>
+<body>
+  <canvas id="bg" aria-hidden="true"></canvas>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <main class="wrap main">
+    <svg class="gears" viewBox="0 0 240 170" aria-hidden="true" focusable="false">
+      <defs><linearGradient id="mg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00f0ff"/><stop offset="1" stop-color="#ff2bd6"/></linearGradient></defs>
+      <g class="spin" style="transform-origin:90px 90px">
+        <path d="M90 36l8 0 4 14a40 40 0 0 1 13 5.400l13-7 6 6-7 13a40 40 0 0 1 5.400 13l14 4v8l-14 4a40 40 0 0 1-5.400 13l7 13-6 6-13-7a40 40 0 0 1-13 5.400l-4 14h-8l-4-14a40 40 0 0 1-13-5.400l-13 7-6-6 7-13a40 40 0 0 1-5.400-13l-14-4v-8l14-4a40 40 0 0 1 5.400-13l-7-13 6-6 13 7a40 40 0 0 1 13-5.400Z" fill="#0d0d1d" stroke="url(#mg)" stroke-width="4" stroke-linejoin="round"/>
+        <circle cx="94" cy="90" r="18" fill="none" stroke="#00f0ff" stroke-width="4"/>
+      </g>
+      <g class="spin rev" style="transform-origin:178px 52px">
+        <path d="M178 28l5 0 3 9a26 26 0 0 1 8 3.500l8-4 4 4-4 8a26 26 0 0 1 3.500 8l9 3v6l-9 3a26 26 0 0 1-3.500 8l4 8-4 4-8-4a26 26 0 0 1-8 3.500l-3 9h-5l-3-9a26 26 0 0 1-8-3.500l-8 4-4-4 4-8a26 26 0 0 1-3.500-8l-9-3v-6l9-3a26 26 0 0 1 3.500-8l-4-8 4-4 8 4a26 26 0 0 1 8-3.500Z" fill="#0d0d1d" stroke="#ff2bd6" stroke-width="3.500" stroke-linejoin="round"/>
+        <circle cx="180" cy="52" r="10" fill="none" stroke="#b6ff3b" stroke-width="3.500"/>
+      </g>
+      <path d="M30 160h180" stroke="#8a5cff" stroke-opacity=".4" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+
+    <p class="eyebrow" id="siteName">turkac.org</p>
+    <h1><span class="glitch grad-text" data-text="Wartungsarbeiten">Wartungsarbeiten</span></h1>
+    <p class="msg" id="msg">Wir schrauben gerade an der Arena und sind gleich wieder für dich da.</p>
+
+    <section class="timer card" aria-labelledby="h-time">
+      <h2 id="h-time" class="sr-only">Verbleibende Zeit</h2>
+      <div id="countdown" hidden>
+        <ul class="units" aria-hidden="true">
+          <li><b id="cd-d">00</b><span>Tage</span></li>
+          <li><b id="cd-h">00</b><span>Std</span></li>
+          <li><b id="cd-m">00</b><span>Min</span></li>
+          <li><b id="cd-s">00</b><span>Sek</span></li>
+        </ul>
+        <p class="sr-only" id="cd-sr"></p>
+      </div>
+      <p class="soon" id="soon">Wir sind bald zurück</p>
+      <p class="back" id="back" role="status" hidden>Wir sind wieder da!</p>
+    </section>
+    <p class="hint" id="note" role="status" aria-live="polite"></p>
+  </main>
+
+  <footer class="foot"><a href="/admin/">Team-Login</a></footer>
+
+  <script src="/js/bg.js"></script>
+  <script src="/js/maintenance.js"></script>
+<script src="/js/sfx.js"></script><script src="/js/fx.js"></script>
+</body>
+</html>

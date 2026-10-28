@@ -1,0 +1,38 @@
+.top-nav { display: flex; gap: 8px; justify-content: center; margin-top: 12px; flex-wrap: wrap; }
+.top-nav a { padding: 8px 16px; border-radius: 999px; border: 1px solid var(--line); background: #000; color: #fff; text-decoration: none; transition: background .15s, border-color .15s, transform .15s; }
+.top-nav a:hover, .top-nav a:focus-visible, .top-nav a:active { background: #d4142c; border-color: #d4142c; transform: translateY(-1px); }
+.top-nav a[aria-current] { border-color: var(--cyan); }
+.sup-main { max-width: 860px; margin: 0 auto; padding: 22px 16px 30px; width: 100%; box-sizing: border-box; }
+.sup-card { background: var(--card, #10101c); border: 1px solid var(--line); border-radius: 18px; padding: 22px; margin-bottom: 18px; }
+.sup-card h1, .sup-card h2 { font-family: var(--font-head); letter-spacing: .04em; margin: 0 0 8px; }
+.sup-card h1 { font-size: 22px; } .sup-card h2 { font-size: 17px; }
+.sup-card .lead, .muted { color: var(--muted); }
+.sup-main select, .sup-main textarea, .sup-main input[type=text] { width: 100%; box-sizing: border-box; background: var(--bg); color: var(--text); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; font: inherit; }
+.sup-main textarea { min-height: 150px; resize: vertical; }
+.sup-main select:focus, .sup-main textarea:focus, .sup-main input:focus { outline: 3px solid #fff; outline-offset: 2px; border-color: var(--cyan); }
+.sup-main .btn, .sup-main button.sbtn { display: inline-flex; align-items: center; justify-content: center; background: #000; color: #fff; border: 2px solid #fff; border-radius: 12px; padding: 11px 20px; font-weight: 700; cursor: pointer; text-decoration: none; font-family: var(--font-body, inherit); letter-spacing: .02em; transition: background .15s, border-color .15s, transform .12s; }
+.sup-main .btn:hover, .sup-main .btn:focus-visible, .sup-main .btn:active, .sup-main button.sbtn:hover, .sup-main button.sbtn:focus-visible, .sup-main button.sbtn:active { background: #d4142c; border-color: #d4142c; color: #fff; filter: none; transform: translateY(-1px); }
+.sup-main .btn:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; }
+.sup-main .btn[disabled] { opacity: .5; }
+.btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+.t-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.t-item { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 14px; background: #0a0a14; text-decoration: none; color: var(--text); transition: border-color .15s, transform .12s; }
+.t-item:hover, .t-item:focus-visible { border-color: #d4142c; transform: translateY(-1px); }
+.t-item .sub { grid-column: 1 / -1; color: var(--muted); font-size: 15px; }
+.badge { display: inline-block; padding: 2px 10px; border-radius: 999px; border: 1px solid var(--line); font-size: 14px; white-space: nowrap; }
+.badge.s-open { border-color: var(--cyan); color: var(--cyan); }
+.badge.s-pending { border-color: #ffb020; color: #ffb020; }
+.badge.s-closed, .badge.s-withdrawn { color: var(--muted); }
+.badge.s-in_progress { border-color: #35e0a1; color: #35e0a1; }
+.dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: #d4142c; margin-right: 6px; }
+.msgs { display: grid; gap: 12px; margin: 14px 0; }
+.msg { padding: 12px 16px; border-radius: 14px; border: 1px solid var(--line); background: #0a0a14; max-width: 92%; }
+.msg.staff { border-color: var(--cyan); justify-self: end; }
+.msg .who { font-size: 14px; color: var(--muted); margin-bottom: 4px; }
+.msg .txt { white-space: pre-wrap; overflow-wrap: anywhere; }
+.sup-main label { display: block; font-weight: 700; margin: 14px 0 6px; }
+.sup-main .count { text-align: right; font-size: 14px; color: var(--muted); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+.skip-link { position: fixed; left: 8px; top: -60px; z-index: 200; background: #000; color: #fff; padding: 10px 16px; border-radius: 10px; border: 2px solid #fff; font-weight: 700; }
+.skip-link:focus { top: 8px; }
+.msg { text-align: left; }

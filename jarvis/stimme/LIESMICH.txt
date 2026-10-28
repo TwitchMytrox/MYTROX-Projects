@@ -1,0 +1,4 @@
+Hier kommen die Stimm-Clips fuer XTTS rein (nur privat nutzen!).
+- WAV-Format, je 5-15 Sekunden
+- nur Sprache: keine Musik, keine Effekte, keine anderen Stimmen
+- insgesamt ca. 20-60 Sekunden

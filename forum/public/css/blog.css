@@ -1,0 +1,22 @@
+.blog-nav { display: flex; justify-content: center; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+.blog-nav a { padding: 8px 16px; border-radius: 999px; border: 1px solid var(--border, #2a2a40); color: var(--text); text-decoration: none; background: #000; transition: background .15s, transform .15s, border-color .15s; }
+.blog-nav a:hover, .blog-nav a:focus-visible, .blog-nav a:active { background: #d4142c; border-color: #d4142c; color: #fff; transform: translateY(-1px); }
+.blog-nav a[aria-current] { border-color: var(--cyan); }
+.blog .lead { color: var(--muted); margin: 0 0 18px; }
+.post-list { display: grid; gap: 16px; }
+.post-card h2 { margin: 6px 0; color: var(--text); font-size: 18px; letter-spacing: 0; }
+.post-card h2 a { color: inherit; text-decoration: none; }
+.post-card h2 a:hover, .post-card h2 a:focus-visible { color: #ff4057; text-decoration: underline; }
+.post-card.pinned { border-color: var(--cyan); }
+.post-card .more { display: inline-block; margin-top: 6px; }
+.meta { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; color: var(--muted); font-size: 15px; margin: 0 0 6px; }
+.kind { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 14px; border: 1px solid var(--border, #2a2a40); color: var(--text); }
+.kind-werbung { border-color: #ffb020; color: #ffb020; }
+.kind-news { border-color: var(--cyan); color: var(--cyan); }
+.ad-note { padding: 8px 12px; border: 1px dashed #ffb020; border-radius: 10px; color: #ffb020; }
+.post .cta { margin: 20px 0; }
+.btn { display: inline-block; padding: 12px 22px; background: #000; color: #fff; border: 2px solid #fff; border-radius: 12px; text-decoration: none; font-weight: 700; transition: background .15s, border-color .15s, transform .15s; }
+.btn:hover, .btn:focus-visible, .btn:active { background: #d4142c; border-color: #d4142c; transform: translateY(-1px); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.skip-link { position: absolute; left: 8px; top: -60px; z-index: 100; background: #000; color: #fff; padding: 10px 16px; border-radius: 10px; border: 2px solid #fff; }
+.skip-link:focus { top: 8px; }

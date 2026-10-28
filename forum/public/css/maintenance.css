@@ -1,0 +1,28 @@
+/* turkac.org – Wartungsseite (ergänzt pages.css) */
+[hidden] { display: none !important; }
+.main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding-top: var(--sp-4); padding-bottom: var(--sp-3); }
+.gears { width: min(300px, 70vw); height: auto; filter: drop-shadow(0 0 22px rgba(138, 92, 255, .5)); margin-bottom: var(--sp-1); }
+.spin { animation: spin 14s linear infinite; }
+.spin.rev { animation-duration: 9s; animation-direction: reverse; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.eyebrow { font-family: var(--font-head); letter-spacing: .2em; color: var(--lime); font-size: .875rem; margin: 0 0 6px; text-transform: uppercase; overflow-wrap: anywhere; }
+h1 { font-family: var(--font-head); font-weight: 900; font-size: clamp(1.6rem, 8vw, 3.5rem); line-height: 1.1; margin: 0 0 14px; overflow-wrap: anywhere; }
+.msg { font-size: clamp(1.1rem, 3.4vw, 1.375rem); color: var(--text); max-width: 34rem; margin: 0 0 var(--sp-3); white-space: pre-line; overflow-wrap: anywhere; }
+.timer { width: 100%; max-width: 520px; padding: var(--sp-3) var(--sp-2); text-align: center; border-color: rgba(0, 240, 255, .5); box-shadow: 0 0 36px -14px var(--cyan); }
+.units { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-1); }
+.units li { padding: 10px 4px; border: 1px solid var(--line); border-radius: var(--r-md); background: rgba(0, 0, 0, .35); }
+.units b { display: block; font-family: var(--font-head); font-size: clamp(1.5rem, 8vw, 2.5rem); color: var(--cyan); text-shadow: 0 0 16px var(--cyan); font-variant-numeric: tabular-nums; }
+.units li:nth-child(even) b { color: var(--pink); text-shadow: 0 0 16px var(--pink); }
+.units span { color: var(--muted); text-transform: uppercase; letter-spacing: .1em; font-size: .875rem; font-weight: 600; }
+.soon, .back { margin: 0; font-family: var(--font-head); font-size: clamp(1rem, 4vw, 1.375rem); color: var(--cyan); letter-spacing: .06em; }
+.back { color: var(--lime); text-shadow: 0 0 16px var(--lime); }
+.hint { min-height: 1.5em; color: var(--muted); font-size: 1rem; margin: var(--sp-2) 0 0; }
+.foot { text-align: center; padding: var(--sp-2); font-size: .9375rem; }
+.foot a { color: var(--muted); display: inline-flex; align-items: center; min-height: var(--tap); padding: 0 12px; text-decoration: underline; text-underline-offset: 3px; }
+.foot a:hover { color: var(--link-hover); }
+html[data-theme=light] .units li { background: rgba(255, 255, 255, .7); }
+html[data-theme=light] .units b, html[data-theme=light] .units li:nth-child(even) b, html[data-theme=light] .back { text-shadow: none; }
+html[data-contrast=high] .units li, html[data-contrast=high] .timer { border: 2px solid var(--line); box-shadow: none; }
+@media (prefers-reduced-motion: reduce) { .spin { animation: none !important; } }
+html[data-motion=reduce] .spin { animation: none !important; }
+@media (forced-colors: active) { .units li { border: 2px solid CanvasText; } .gears { forced-color-adjust: none; } }

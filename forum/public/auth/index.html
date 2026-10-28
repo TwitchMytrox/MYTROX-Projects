@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anmelden – turkac.org</title>
+  <meta name="theme-color" content="#07070f">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%8E%AE%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/pages.css">
+  <link rel="stylesheet" href="/css/auth.css">
+  <link rel="stylesheet" href="/css/chrome.css">
+</head>
+<body>
+  <canvas id="bg" aria-hidden="true"></canvas>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <header id="siteHeader"></header>
+
+  <main class="auth-main">
+    <div class="card cut auth-card">
+      <noscript><p class="alert err" style="margin:16px">Für Anmeldung und Registrierung wird JavaScript benötigt.</p></noscript>
+
+      <div class="tabs" role="tablist" aria-label="Konto" id="tabs">
+        <button class="tab" role="tab" id="tab-login" aria-controls="p-login" aria-selected="true" tabindex="0" data-tab="login">Anmelden</button>
+        <button class="tab" role="tab" id="tab-register" aria-controls="p-register" aria-selected="false" tabindex="-1" data-tab="register">Registrieren</button>
+        <button class="tab" role="tab" id="tab-recover" aria-controls="p-recover" aria-selected="false" tabindex="-1" data-tab="recover">Passwort vergessen</button>
+      </div>
+
+      <!-- Bereits angemeldet -->
+      <section class="panel" id="p-me" hidden>
+        <h1>Du bist angemeldet</h1>
+        <p class="lead who">Angemeldet als <strong id="meName"></strong></p>
+        <div class="alert err" data-err role="alert" hidden></div>
+        <div class="btn-row">
+          <a class="btn btn-primary" id="meGo" href="/forum">Zum Forum</a>
+          <button class="btn btn-ghost" type="button" id="meLogout">Abmelden</button>
+        </div>
+      </section>
+
+      <!-- Anmelden -->
+      <section class="panel" id="p-login" role="tabpanel" aria-labelledby="tab-login">
+        <div id="loginStep">
+          <h1>Willkommen zurück</h1>
+          <p class="lead">Melde dich mit Benutzername und Passwort an.</p>
+          <form id="loginForm" novalidate>
+            <div class="alert err" data-err aria-live="assertive" hidden></div>
+            <div class="alert okk" id="loginOk" hidden></div>
+            <div class="field"><label for="l-user">Benutzername</label><input type="text" id="l-user" autocomplete="username" autocapitalize="off" spellcheck="false" required></div>
+            <div class="field"><label for="l-pass">Passwort</label>
+              <div class="input-row"><input type="password" id="l-pass" autocomplete="current-password" required><button class="mini-btn" type="button" data-toggle="l-pass" aria-pressed="false">Anzeigen</button></div></div>
+            <div class="field" id="l-code-field" hidden><label for="l-code">Code</label><input type="text" id="l-code" autocomplete="one-time-code" autocapitalize="characters" spellcheck="false"><span class="hint">6-stelliger App-Code oder Wiederherstellungscode</span></div>
+            <button class="btn btn-primary btn-block" type="submit" id="loginBtn">Anmelden</button>
+            <button class="btn btn-ghost btn-block" type="button" id="keyLogin" hidden style="margin-top:10px">🔑 Mit Sicherheitsschlüssel bestätigen</button>
+          </form>
+        </div>
+        <div id="loginRemind" hidden>
+          <h2>Wenige Wiederherstellungscodes übrig</h2>
+          <p class="alert warn" id="remindText"></p>
+          <p class="muted">Neue Codes kannst du in den Konto-Einstellungen erzeugen.</p>
+          <button class="btn btn-primary btn-block" type="button" id="remindOk">Verstanden</button>
+        </div>
+      </section>
+
+      <!-- Registrieren -->
+      <section class="panel" id="p-register" role="tabpanel" aria-labelledby="tab-register" hidden>
+        <div id="regClosed" hidden><h1>Registrierung geschlossen</h1><p class="alert warn">Aktuell können keine neuen Konten erstellt werden. Schau später noch einmal vorbei.</p></div>
+        <div id="regStep">
+          <h1>Konto erstellen</h1>
+          <p class="lead">Kein Klarname und keine E-Mail nötig – nur ein Benutzername und ein Passwort.</p>
+          <form id="regForm" novalidate>
+            <div class="alert err" data-err aria-live="assertive" hidden></div>
+            <div class="field"><label for="r-user">Benutzername</label>
+              <div class="input-row wrapping"><input type="text" id="r-user" maxlength="20" autocomplete="username" autocapitalize="off" spellcheck="false" required aria-describedby="r-user-hint"><button class="mini-btn" type="button" id="suggestBtn">🎲 Zufälliger Name</button></div>
+              <span class="hint" id="r-user-hint" aria-live="polite">3–20 Zeichen: Buchstaben, Ziffern, _ und -</span></div>
+            <div class="field"><label for="r-pass">Passwort</label>
+              <div class="input-row"><input type="password" id="r-pass" autocomplete="new-password" required aria-describedby="r-meter-hint"><button class="mini-btn" type="button" data-toggle="r-pass r-pass2" aria-pressed="false">Anzeigen</button></div>
+              <div class="meter" aria-hidden="true"><i id="r-meter"></i></div>
+              <span class="hint" id="r-meter-hint">Mindestens 8 Zeichen</span></div>
+            <div class="field"><label for="r-pass2">Passwort wiederholen</label><input type="password" id="r-pass2" autocomplete="new-password" required></div>
+            <div class="field hp" aria-hidden="true"><label for="r-web">Website</label><input type="text" id="r-web" tabindex="-1" autocomplete="off"></div>
+            <div class="field" id="captchaBox" hidden>
+              <p class="hint" id="powState" role="status" aria-live="polite" hidden>Sicherheitsprüfung läuft … (automatisch, du musst nichts tun)</p>
+              <div id="qBox" hidden><label for="r-captcha" id="captchaLabel">Sicherheitsfrage</label>
+                <div class="captcha-row" id="imgRow"><div id="captchaImg" class="captcha-img"></div><button class="mini-btn" type="button" id="captchaNew" aria-label="Neues Bild">↻</button></div>
+                <input type="text" id="r-captcha" autocomplete="off" spellcheck="false" maxlength="8"></div></div>
+            <p class="cookie-note">Mit der Anmeldung setzen wir ein technisch notwendiges Cookie. Es hält dich angemeldet; wir nutzen es nicht zum Tracking.</p>
+            <label class="check"><input type="checkbox" id="r-accept"><span>Ich habe die Regeln gelesen und akzeptiere das technisch notwendige Anmelde-Cookie.</span></label>
+            <button class="btn btn-primary btn-block" type="submit" id="regBtn">Konto erstellen</button>
+          </form>
+        </div>
+        <div id="regCodes" hidden>
+          <h1>Deine Wiederherstellungscodes</h1>
+          <p class="alert warn"><strong>Nur jetzt sichtbar.</strong> Ohne E-Mail gibt es sonst keinen Passwort-Reset. Jeder Code funktioniert genau einmal. Speichere sie sicher (Passwortmanager, Ausdruck).</p>
+          <ul class="codes" id="codeList"></ul>
+          <div class="btn-row"><button class="btn btn-ghost" type="button" id="copyCodes">Kopieren</button><button class="btn btn-ghost" type="button" id="saveCodes">Als Datei speichern</button></div>
+          <div class="alert okk" id="copyMsg" role="status" hidden></div>
+          <label class="check"><input type="checkbox" id="codesSaved"><span>Ich habe die Codes sicher gespeichert.</span></label>
+          <p class="muted" style="font-size:16px">Tipp: Zusätzliche Zwei-Faktor-Absicherung kannst du später in den Konto-Einstellungen aktivieren.</p>
+          <button class="btn btn-primary btn-block" type="button" id="codesGo" disabled>Weiter zum Forum</button>
+        </div>
+      </section>
+
+      <!-- Passwort vergessen -->
+      <section class="panel" id="p-recover" role="tabpanel" aria-labelledby="tab-recover" hidden>
+        <h1>Passwort zurücksetzen</h1>
+        <p class="lead">Ohne E-Mail geht das nur mit einem deiner Wiederherstellungscodes. Ohne Code ist kein Reset möglich.</p>
+        <form id="recForm" novalidate>
+          <div class="alert err" data-err aria-live="assertive" hidden></div>
+          <div class="field"><label for="c-user">Benutzername</label><input type="text" id="c-user" autocomplete="username" autocapitalize="off" spellcheck="false" required></div>
+          <div class="field"><label for="c-code">Wiederherstellungscode</label><input type="text" id="c-code" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="ABCD-EFGH-JKLM" required></div>
+          <div class="field"><label for="c-pass">Neues Passwort</label>
+            <div class="input-row"><input type="password" id="c-pass" autocomplete="new-password" required><button class="mini-btn" type="button" data-toggle="c-pass c-pass2" aria-pressed="false">Anzeigen</button></div></div>
+          <div class="field"><label for="c-pass2">Neues Passwort wiederholen</label><input type="password" id="c-pass2" autocomplete="new-password" required></div>
+          <button class="btn btn-primary btn-block" type="submit" id="recBtn">Passwort ändern</button>
+        </form>
+      </section>
+    </div>
+  </main>
+  <footer id="siteFooter"></footer>
+  <script src="/js/chrome.js"></script>
+
+  <script src="/js/bg.js"></script>
+  <script src="/js/webauthn-client.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/pwa.js"></script>
+<script src="/js/sfx.js"></script><script src="/js/fx.js"></script>
+</body>
+</html>
