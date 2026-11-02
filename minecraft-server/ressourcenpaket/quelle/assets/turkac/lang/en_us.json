@@ -7,5 +7,6 @@
   "subtitles.turkac.ui.error": "Error",
   "subtitles.turkac.ui.teleport": "Teleport",
   "subtitles.turkac.ui.page": "Page",
-  "item.turkac.personalausweis": "ID Card"
+  "item.turkac.personalausweis": "ID Card",
+  "subtitles.turkac.ui.jump": "Double jump"
 }

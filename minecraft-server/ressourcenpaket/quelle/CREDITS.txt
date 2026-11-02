@@ -1,0 +1,2 @@
+Sounds: "Interface Sounds" und "UI Audio" von Kenney (www.kenney.nl), Lizenz CC0 1.0 (gemeinfrei).
+Dark-Mode-Texturen: abgedunkelte Minecraft-GUI-Texturen.
