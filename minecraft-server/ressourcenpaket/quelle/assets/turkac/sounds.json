@@ -1,0 +1,74 @@
+{
+  "ui.click": {
+    "sounds": [
+      {
+        "name": "turkac:ui/click",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.turkac.ui.click"
+  },
+  "ui.open": {
+    "sounds": [
+      {
+        "name": "turkac:ui/open",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.turkac.ui.open"
+  },
+  "ui.close": {
+    "sounds": [
+      {
+        "name": "turkac:ui/close",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.turkac.ui.close"
+  },
+  "ui.success": {
+    "sounds": [
+      {
+        "name": "turkac:ui/success",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.turkac.ui.success"
+  },
+  "ui.buy": {
+    "sounds": [
+      {
+        "name": "turkac:ui/buy",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.turkac.ui.buy"
+  },
+  "ui.error": {
+    "sounds": [
+      {
+        "name": "turkac:ui/error",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.turkac.ui.error"
+  },
+  "ui.teleport": {
+    "sounds": [
+      {
+        "name": "turkac:ui/teleport",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.turkac.ui.teleport"
+  },
+  "ui.page": {
+    "sounds": [
+      {
+        "name": "turkac:ui/page",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.turkac.ui.page"
+  }
+}
