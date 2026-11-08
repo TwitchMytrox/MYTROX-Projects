@@ -12,6 +12,7 @@ Das Server-Ressourcenpaket für meinen Minecraft-Server **Turkac RP**. Der Serve
 | 🔊 Sounds | Kurze, saubere Menü-Sounds im Stil „Studio“ aus [UI SFX](https://github.com/romainsimon/uisfx) (CC0): `turkac:ui.click`, `ui.open`, `ui.close`, `ui.page`, `ui.buy`, `ui.success`, `ui.error`. `ui.teleport` nutzt den Minecraft-Enderman-Sound, `ui.jump` ist stumm. |
 | 🪪 Personalausweis | Eigene Textur für Papier mit `custom_model_data` = `turkac:personalausweis`. |
 | 🤵 Anzug | Schwarzer Anzug aus Lederrüstung: Sakko mit weißem Hemd, dünner Krawatte und Einstecktuch, Hose mit Gürtel, schwarze Schuhe. Nutzt `item_model` + `equippable` – normale Lederrüstung bleibt unverändert. |
+| 🛡️ Team-Outfits | Jacke, Hose und Schuhe für **Admins (rot)** und **Supporter (blau)**: Schriftzug ADMIN/SUPPORT auf dem Rücken, Abzeichen auf der Brust, farbige Armbinde, Streifen und Sohlen. Unzerstörbar. |
 
 ## Anzug geben
 
@@ -35,3 +36,20 @@ Das Server-Ressourcenpaket für meinen Minecraft-Server **Turkac RP**. Der Serve
 - `quelle/` – der entpackte Inhalt zum Bearbeiten
 
 Nach jeder Änderung neu zippen und in der `server.properties` die neue `resource-pack-sha1` eintragen.
+
+
+## Team-Outfits geben
+
+**Admin**
+```
+/minecraft:give @p leather_chestplate[item_model="turkac:admin_jacke",equippable={slot:"chest",asset_id:"turkac:admin"},item_name={text:"Admin-Jacke",color:"red",bold:true},unbreakable={}]
+/minecraft:give @p leather_leggings[item_model="turkac:admin_hose",equippable={slot:"legs",asset_id:"turkac:admin"},item_name={text:"Admin-Hose",color:"red",bold:true},unbreakable={}]
+/minecraft:give @p leather_boots[item_model="turkac:admin_schuhe",equippable={slot:"feet",asset_id:"turkac:admin"},item_name={text:"Admin-Schuhe",color:"red",bold:true},unbreakable={}]
+```
+
+**Supporter**
+```
+/minecraft:give @p leather_chestplate[item_model="turkac:support_jacke",equippable={slot:"chest",asset_id:"turkac:support"},item_name={text:"Supporter-Jacke",color:"blue",bold:true},unbreakable={}]
+/minecraft:give @p leather_leggings[item_model="turkac:support_hose",equippable={slot:"legs",asset_id:"turkac:support"},item_name={text:"Supporter-Hose",color:"blue",bold:true},unbreakable={}]
+/minecraft:give @p leather_boots[item_model="turkac:support_schuhe",equippable={slot:"feet",asset_id:"turkac:support"},item_name={text:"Supporter-Schuhe",color:"blue",bold:true},unbreakable={}]
+```
