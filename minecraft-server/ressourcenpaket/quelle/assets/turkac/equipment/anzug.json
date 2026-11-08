@@ -1,0 +1,10 @@
+{
+  "layers": {
+    "humanoid": [
+      { "texture": "turkac:anzug" }
+    ],
+    "humanoid_leggings": [
+      { "texture": "turkac:anzug" }
+    ]
+  }
+}
