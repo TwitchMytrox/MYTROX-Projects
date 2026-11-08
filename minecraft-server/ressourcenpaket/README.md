@@ -8,7 +8,7 @@ Das Server-Ressourcenpaket für meinen Minecraft-Server **Turkac RP**. Der Serve
 
 | Teil | Beschreibung |
 |------|--------------|
-| 🌙 Dark Mode | Alle Container-Menüs (Truhen, Inventar, Öfen, Shops, DeluxeMenus …), Buttons und das Rezeptbuch in dunklem Grau. Ein kleiner Text-Shader macht die dunkelgrauen Menü-Titel hell, damit sie lesbar bleiben. |
+| 🌙 Dark Mode | [Default Dark Mode](https://github.com/nebuIr/Default-Dark-Mode) von nebulr (CC BY-NC-SA 4.0): alle Menüs, Inventare und Buttons dunkel. Der Text-Shader ist an 1.21.11 angepasst, damit Menütitel hell und lesbar bleiben. |
 | 🔊 Sounds | Kurze, saubere Menü-Sounds im Stil „Studio“ aus [UI SFX](https://github.com/romainsimon/uisfx) (CC0): `turkac:ui.click`, `ui.open`, `ui.close`, `ui.page`, `ui.buy`, `ui.success`, `ui.error`. `ui.teleport` nutzt den Minecraft-Enderman-Sound, `ui.jump` ist stumm. |
 | 🪪 Personalausweis | Eigene Textur für Papier mit `custom_model_data` = `turkac:personalausweis`. |
 | 🤵 Anzug | Schwarzer Anzug aus Lederrüstung: Sakko mit weißem Hemd, dünner Krawatte und Einstecktuch, Hose mit Gürtel, schwarze Schuhe. Nutzt `item_model` + `equippable` – normale Lederrüstung bleibt unverändert. |

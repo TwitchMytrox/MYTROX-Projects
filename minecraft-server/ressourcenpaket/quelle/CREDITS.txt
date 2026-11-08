@@ -1,2 +1,8 @@
-Sounds: "Interface Sounds" und "UI Audio" von Kenney (www.kenney.nl), Lizenz CC0 1.0 (gemeinfrei).
-Dark-Mode-Texturen: abgedunkelte Minecraft-GUI-Texturen.
+Dark Mode: "Default Dark Mode" von nebulr (https://github.com/nebuIr/Default-Dark-Mode),
+Version 2025.6.0 für 1.21.6, Lizenz CC BY-NC-SA 4.0 (siehe LICENSE-DefaultDarkMode.txt).
+Geändert: nur die Minecraft-Texturen übernommen, Text-Shader durch eine an 1.21.11 angepasste
+Version ersetzt. Diese Teile stehen ebenfalls unter CC BY-NC-SA 4.0 (nicht kommerziell).
+
+Sounds: "UI SFX" (https://github.com/romainsimon/uisfx), Lizenz CC0 1.0 (gemeinfrei).
+
+Anzug, Team-Outfits, Personalausweis: eigene Texturen für Turkac.

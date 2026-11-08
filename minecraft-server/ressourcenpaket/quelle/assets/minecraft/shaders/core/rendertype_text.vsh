@@ -21,7 +21,7 @@ void main() {
 
     sphericalVertexDistance = fog_spherical_distance(Position);
     cylindricalVertexDistance = fog_cylindrical_distance(Position);
-    // Turkac Dark Mode: dark gray GUI labels (#404040) become light gray
+    // Dark Mode (für Default Dark Mode, angepasst an 1.21.11): dunkelgraue Menütitel (#404040) become light gray
     vec4 col = Color;
     if (all(lessThan(abs(col.rgb - vec3(64.0 / 255.0)), vec3(0.003)))) {
         col.rgb = vec3(0.86, 0.86, 0.90);
