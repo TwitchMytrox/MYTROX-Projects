@@ -12,7 +12,7 @@ Das Server-Ressourcenpaket für meinen Minecraft-Server **Turkac RP**. Der Serve
 | 🔊 Sounds | Kurze, saubere Menü-Sounds im Stil „Studio“ aus [UI SFX](https://github.com/romainsimon/uisfx) (CC0): `turkac:ui.click`, `ui.open`, `ui.close`, `ui.page`, `ui.buy`, `ui.success`, `ui.error`. `ui.teleport` nutzt den Minecraft-Enderman-Sound, `ui.jump` ist stumm. |
 | 🪪 Personalausweis | Eigene Textur für Papier mit `custom_model_data` = `turkac:personalausweis`. |
 | 🤵 Anzug | Schwarzer Anzug aus Lederrüstung: Sakko mit weißem Hemd, dünner Krawatte und Einstecktuch, Hose mit Gürtel, schwarze Schuhe. Nutzt `item_model` + `equippable` – normale Lederrüstung bleibt unverändert. |
-| 👔 Kleidungs-Update | 17 eigene Outfits (Smoking, Nadelstreifen, Gold VIP, Trainingsanzug, Hoodie, Biker, Polizei, SWAT, Feuerwehr, Rettungsdienst, Mechaniker, Koch, Pirat, weißer und schwarzer Anzug, 20er-Look, klassischer Anzug mit Hut) und 14 Kopfbedeckungen. Dateien heißen `kl_*`, werden über den `/shop` im Turkac-Plugin verkauft. |
+| 👔 Kleidungs-Update | 40 eigene Outfits als Rüstungs-Texturen, 18 Kopfbedeckungen als 3D-Modelle (auf dem Kopf sichtbar), 19 Requisiten als 3D-Modelle in der Hand, 6 Umhänge/Flügel/Rucksäcke. Dateien heißen `kl_*`, verkauft über `/shop` im Turkac-Plugin. Erzeugt mit `werkzeuge/bauen.py`. |
 | 🛡️ Team-Outfits | Jacke, Hose und Schuhe für **Admins (rot)** und **Supporter (blau)**: Schriftzug ADMIN/SUPPORT auf dem Rücken, Abzeichen auf der Brust, farbige Armbinde, Streifen und Sohlen. Unzerstörbar. |
 
 ## Anzug geben

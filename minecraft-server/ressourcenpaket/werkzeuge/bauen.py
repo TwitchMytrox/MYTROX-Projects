@@ -2,6 +2,9 @@ import json, os, sys
 from PIL import Image, ImageDraw
 sys.path.insert(0, os.path.dirname(__file__))
 from tex import *
+from kostueme import KOSTUEME
+from modelle import KOPF3D, HAND3D, DEKO3D
+from fluegel import FLUEGEL
 
 PACK = sys.argv[1]  # .../quelle
 NS = os.path.join(PACK, 'assets/turkac')
@@ -117,7 +120,7 @@ vorschau = []
 # Outfits
 basis_h = Image.open(f'{NS}/textures/entity/equipment/humanoid/anzug.png').convert('RGBA')
 basis_l = Image.open(f'{NS}/textures/entity/equipment/humanoid_leggings/anzug.png').convert('RGBA')
-alle = dict(OUTFITS); alle['anzug_klassisch'] = lambda: klassisch(basis_h, basis_l)
+alle = dict(OUTFITS); alle.update(KOSTUEME); alle['anzug_klassisch'] = lambda: klassisch(basis_h, basis_l)
 for name, fn in alle.items():
     hum, leg = fn()
     asset = f'kl_{name}'
@@ -129,12 +132,33 @@ for name, fn in alle.items():
 
 # Kopfbedeckungen
 for name, fn in KOPF.items():
+    if name in KOPF3D: continue
     hum = kopf(fn); asset = f'kl_{name}'
     ausruestung(asset, hum)
     ic = hut_icon(hum)
     icon_speichern(asset, ic)
     ergebnis[name] = asset
     vorschau.append((name, ansicht(hum, Image.new('RGBA', hum.size)), ansicht(hum, Image.new('RGBA', hum.size), 'back'), [ic]))
+
+# 3D-Modelle
+for gruppe in (KOPF3D, HAND3D, DEKO3D):
+    for name, fn in gruppe.items():
+        m = fn(); asset = f'kl_{name}'
+        json_schreiben(f'{NS}/items/{asset}.json', {"model": {"type": "minecraft:model", "model": f"turkac:item/{asset}"}})
+        json_schreiben(f'{NS}/models/item/{asset}.json', m.json(asset))
+        os.makedirs(f'{NS}/textures/item', exist_ok=True); m.textur().save(f'{NS}/textures/item/{asset}.png')
+        ergebnis[name] = asset
+
+# Rücken-Teile (Elytra-Form)
+for name, fn in FLUEGEL.items():
+    img = fn(); asset = f'kl_{name}'
+    os.makedirs(f'{NS}/textures/entity/equipment/wings', exist_ok=True); img.save(f'{NS}/textures/entity/equipment/wings/{asset}.png')
+    json_schreiben(f'{NS}/equipment/{asset}.json', {"layers": {"wings": [{"texture": f"turkac:{asset}"}]}})
+    vorne = img.crop((24 * 2, 2 * 2, 34 * 2, 22 * 2))
+    ic = Image.new('RGBA', (16, 16), (0, 0, 0, 0)); kl = vorne.resize((6, 12), Image.BOX)
+    ic.alpha_composite(kl, (2, 2)); ic.alpha_composite(kl.transpose(Image.FLIP_LEFT_RIGHT), (8, 2))
+    icon_speichern(asset, umriss(ic))
+    ergebnis[name] = asset
 
 # Vorschaubild
 skin = Image.new('RGBA', (16 * S, 32 * S), (0, 0, 0, 0)); d = ImageDraw.Draw(skin)
