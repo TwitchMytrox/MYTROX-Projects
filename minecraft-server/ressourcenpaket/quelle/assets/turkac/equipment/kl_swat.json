@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "turkac:kl_swat"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "turkac:kl_swat"
+      }
+    ]
+  }
+}

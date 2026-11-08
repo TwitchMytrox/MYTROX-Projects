@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "turkac:kl_feuerwehr"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "turkac:kl_feuerwehr"
+      }
+    ]
+  }
+}

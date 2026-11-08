@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "turkac:item/kl_gold_vip_hose"
+  }
+}

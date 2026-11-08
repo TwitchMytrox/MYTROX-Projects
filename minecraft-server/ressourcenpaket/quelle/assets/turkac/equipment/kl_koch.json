@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "turkac:kl_koch"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "turkac:kl_koch"
+      }
+    ]
+  }
+}
